@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <h1>Yuxuan Xiao</h1>
+    <h1><App /></h1>
   </React.StrictMode>
 );
 
