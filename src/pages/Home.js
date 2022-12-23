@@ -1,8 +1,10 @@
 import React from "react";
-import { ContentCN, ContentEN } from "../models.js/Content";
+import { ContentCN, ContentEN } from "../models/Content";
 
 function Home() {
-    return (<div> <h1>{ContentCN.welcome}</h1> </div>);
+    var Content = ContentEN
+
+    return (<div> <h1>{Content.mainWelcome}</h1> </div>);
 }
 
 export default Home;
