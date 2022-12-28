@@ -1,0 +1,6 @@
+.footer {
+    background: #21325e;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}

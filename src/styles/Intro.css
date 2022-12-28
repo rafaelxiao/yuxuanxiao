@@ -1,0 +1,32 @@
+.area {
+    /* background-color: red; */
+    position: relative;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.anchor {
+    position: relative;
+    top: -20vh;
+}
+
+.content {
+    color: white;
+    position: absolute;
+    top: 10vh;
+    left: 15vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    width: 50vw;
+    min-height: 400px;
+}
+
+.image {
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+    min-height: 250px;
+}
