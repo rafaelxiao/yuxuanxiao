@@ -4,21 +4,36 @@ import { ContentCN, ContentEN } from "../models/Content";
 import "../styles/Home.css"
 import Intro from "../components/Intro";
 import Footer from "../components/Footer";
+import Projects from "../components/Projects";
 
 function Home() {
-    const content = ContentCN
+    
+    const [language, setLanguage] = React.useState('CN');
+    const content = language === 'CN' ? ContentCN: ContentEN;
 
     return (
         <div className="home">
-            <Navbar />
+            <Navbar language={language} 
+                setLanguage={setLanguage}/>
 
             <Intro loc_id='intro' 
-                main={content.introWelcome} 
+                main={content.introMe} 
                 desc={content.introPrompt}
-                img_src={require("../images/main.jpeg")}/>
+                img_src={require("../images/main.jpeg")}
+                welcome={content.introWelcome}
+                character={content.introChar}/>
+
+            {/* <Projects /> */}
 
             <section id='projects'>
                 <h1>{content.navProjects}</h1>
+                <p></p>
+            </section>
+
+            <div style={{"height": "500px"}}></div>
+
+            <section id='skills'>
+                <h1>{content.navSkills}</h1>
                 <p></p>
             </section>
 

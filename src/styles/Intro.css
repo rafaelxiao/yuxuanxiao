@@ -15,18 +15,39 @@
 .content {
     color: white;
     position: absolute;
-    top: 10vh;
     left: 15vw;
     display: flex;
     flex-direction: column;
-    justify-content: left;
-    width: 50vw;
-    min-height: 400px;
+    justify-content: center;
+    width: 70vw;
+    min-height: 300px;
+}
+
+.content .welcome {
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.content .main {
+    margin-top: 0.5vh;
+    font-weight: 500;
+}
+
+.content .character {
+    color: orange;
+    font-weight: 800;
+}
+
+.content .desc {
+    margin-top: 1vh;
+    font-size: 12px;
 }
 
 .image {
     width: 100vw;
     padding: 0;
     margin: 0;
-    min-height: 250px;
+    min-height: 300px;
 }

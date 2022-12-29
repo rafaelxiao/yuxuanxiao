@@ -1,6 +1,6 @@
 .navbar {
     background-color: #03396c;
-    height: 15vh;
+    height: 10vh;
     width: 100%;
     position: fixed;
     top: 0px;
@@ -33,7 +33,7 @@
 .links a {
     color: white;
     text-decoration: none;
-    font-size: larger;
+    font-size: 16px;
     font-weight: 500;
 }
 
@@ -53,6 +53,19 @@
     padding-bottom: 40px;
 }
 
+.language {
+    color: white;
+    flex: -1;
+    display: flex;
+    margin-left: 35vw;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+#open .language {
+    display: none;
+}
+
 .toggleButton {
     height: 100%;
     display: flex;
@@ -68,12 +81,16 @@
 }
 
 .toggleButton svg {
-    font-size: 50px;
+    font-size: 40px;
     height: 100%;
 }
 
 #open .toggleButton {
-    display: none;
+    /* display: none; */
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 10vh;
 }
 
 @media screen and (min-width: 600px) {

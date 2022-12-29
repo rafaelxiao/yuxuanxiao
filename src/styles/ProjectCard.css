@@ -1,0 +1,19 @@
+.projectCard {
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+    width: 30vw;
+    height: 40vw;
+    border: 1px solid blue;
+    overflow: hidden;
+}
+
+.projectCard .cardImage {
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+    /* aspect-ratio: '3/2'; */
+}

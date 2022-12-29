@@ -1,17 +1,25 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { ContentCN, ContentEN } from "../models/Content";
 import "../styles/Navbar.css";
 import ReorderIcon from "@material-ui/icons/Reorder";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 
-function Navbar() {
-    const Content = ContentCN
+function Navbar( {language, setLanguage} ) {
     const [expandNavbar, setExpandNavbar] = React.useState(false);
+    const content = language === 'CN' ? ContentCN: ContentEN;
 
     return (
     <div className="navbar" id={expandNavbar ? "open" : "close"}>
 
         <div className="logo">YX</div>
+
+        <div className="language" onClick={() => {
+            if (language == 'CN') {
+                setLanguage('EN');
+            } else {
+                setLanguage('CN');
+            }
+        }}>{language}</div>
 
         <div className="toggleButton">
             <button onClick={() => {
@@ -21,11 +29,14 @@ function Navbar() {
             </button>
         </div>
 
+
         <div className="links">
-            <AnchorLink href="#intro" onClick={()=>setExpandNavbar(false)}> { Content.navHome }</AnchorLink>
-            <AnchorLink href="#projects" onClick={()=>setExpandNavbar(false)}> { Content.navProjects }</AnchorLink>
-            <AnchorLink href="#experience" onClick={()=>setExpandNavbar(false)}> { Content.navExperience }</AnchorLink>
+            <AnchorLink href="#intro" offset='100' onClick={()=>setExpandNavbar(false)}> { content.navHome }</AnchorLink>
+            <AnchorLink href="#projects" onClick={()=>setExpandNavbar(false)}> { content.navProjects }</AnchorLink>
+            <AnchorLink href="#skills" onClick={()=>setExpandNavbar(false)}> { content.navSkills }</AnchorLink>
+            <AnchorLink href="#experience" onClick={()=>setExpandNavbar(false)}> { content.navExperience }</AnchorLink>
         </div>
+
 
     </div>
     );

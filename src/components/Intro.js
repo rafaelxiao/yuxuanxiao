@@ -2,15 +2,17 @@ import React from "react";
 import "../styles/Intro.css"
 
 
-function Intro({loc_id, main, desc, img_src}) {
+function Intro({loc_id, main, desc, welcome, character, img_src}) {
     return (
-        <div className='area'>
+        <div id={loc_id} className='area'>
             <div className="content">
-                <h1>{main}</h1>
-                <p>{desc}</p>
+                <p className="welcome">{welcome}</p>
+                <h2 className="main">{main}</h2>
+                <p className="character">{character}</p>
+                <p className="desc">{desc}</p>
             </div>
             <img src={img_src} className="image"></img>
-            <div id={loc_id} className='anchor'></div>
+            {/* <div id={loc_id} className='anchor'></div> */}
         </div>
     )
 }
