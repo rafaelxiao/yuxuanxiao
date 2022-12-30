@@ -19,7 +19,7 @@ function Navbar( {language, setLanguage} ) {
             } else {
                 setLanguage('CN');
             }
-        }}>{language}</div>
+        }}>{language === 'CN' ? 'English' : '中文'}</div>
 
         <div className="toggleButton">
             <button onClick={() => {

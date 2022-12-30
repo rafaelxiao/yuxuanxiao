@@ -3,10 +3,10 @@ import "../styles/ProjectCard.css";
 
 function ProjectCard() {
     return (
-        <div className="projectCard">
-            <h3 className="title">项目AAA</h3>
-            <img src={require("../images/main.jpeg")} className="cardImage"></img>
-            {/* <p className="desc">xxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p> */}
+        <div className="project_card">
+            <img src={require("../images/main.jpeg")} className="card_image"></img>
+            <h3 className="title">Project</h3>
+            <div className="desc"><p>this is a sample project that is still in development</p></div>
         </div>
     );
 }

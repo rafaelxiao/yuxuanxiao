@@ -1,5 +1,4 @@
 const ContentEN = {
-    introWelcome: "Welcome to my portfolio",
     introMe: "Hi I am Yuxuan Xiao",
     introChar: "Data Analyst / Developer / Content Creator",
     introPrompt: "A seasoned data analyst, MBA, CFA Level 3. Proficient at machine learning, neural network and time series",
@@ -10,7 +9,6 @@ const ContentEN = {
 }
 
 const ContentCN = {
-    introWelcome: "欢迎来到我的小站",
     introMe: "我是肖宇宣",
     introChar: "数据分析师 / 开发者 / 创作者",
     introPrompt: "经验丰富的数据分析师。MBA，CFA三级。擅长机器学习、神经网络、时间序列",

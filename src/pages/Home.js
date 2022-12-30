@@ -19,18 +19,9 @@ function Home() {
             <Intro loc_id='intro' 
                 main={content.introMe} 
                 desc={content.introPrompt}
-                img_src={require("../images/main.jpeg")}
-                welcome={content.introWelcome}
                 character={content.introChar}/>
 
-            {/* <Projects /> */}
-
-            <section id='projects'>
-                <h1>{content.navProjects}</h1>
-                <p></p>
-            </section>
-
-            <div style={{"height": "500px"}}></div>
+            <Projects title={content.navProjects} id='projects'/>
 
             <section id='skills'>
                 <h1>{content.navSkills}</h1>

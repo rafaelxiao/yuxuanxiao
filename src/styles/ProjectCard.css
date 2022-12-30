@@ -1,19 +1,60 @@
-.projectCard {
+.project_card {
     display: flex;
     text-align: left;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
+    align-items: center;
+    justify-content: flex-end;
     position: relative;
-    width: 30vw;
-    height: 40vw;
-    border: 1px solid blue;
+    width: 150px;
+    height: 150px;
+    border-radius: 0.5em;
     overflow: hidden;
+    background-color: #2E8BC015;
+    margin: 1vw;
 }
 
-.projectCard .cardImage {
+.project_card .title {
+    /* color: white;
+    z-index: 1; */
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.project_card div.desc {
+    color: white;
+    background-color: #0C2D4899;
+    opacity: 0;
+    position: absolute;
+    top: 0;
     width: 100%;
-    height: 80%;
+    height: 100%;
+    z-index: 1;
+    margin: 0;
+    padding: 0;
+    transition: 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.project_card .desc p {
+    width: 80%;
+    font-size: 12px;
+    /* word-wrap: break-word; */
+}
+
+.project_card div.desc:hover {
+    opacity: 1;
+}
+
+
+
+.project_card .card_image {
+    width: 100%;
+    height: 75%;
+    position: absolute;
+    top: 0;
     object-fit: cover;
+    border-radius: 0 0 0.5em 0.5em;
     /* aspect-ratio: '3/2'; */
 }
