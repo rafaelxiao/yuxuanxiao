@@ -1,14 +1,15 @@
 {
-  "main.css": "/static/css/main.a298cb9f.chunk.css",
-  "main.js": "/static/js/main.5b9702d1.chunk.js",
-  "main.js.map": "/static/js/main.5b9702d1.chunk.js.map",
-  "static/js/1.83c2de88.chunk.js": "/static/js/1.83c2de88.chunk.js",
-  "static/js/1.83c2de88.chunk.js.map": "/static/js/1.83c2de88.chunk.js.map",
+  "main.css": "/static/css/main.ebea659b.chunk.css",
+  "main.js": "/static/js/main.37289916.chunk.js",
+  "main.js.map": "/static/js/main.37289916.chunk.js.map",
+  "static/js/1.0067aa65.chunk.js": "/static/js/1.0067aa65.chunk.js",
+  "static/js/1.0067aa65.chunk.js.map": "/static/js/1.0067aa65.chunk.js.map",
   "runtime~main.js": "/static/js/runtime~main.229c360f.js",
   "runtime~main.js.map": "/static/js/runtime~main.229c360f.js.map",
-  "static/media/main.jpeg": "/static/media/main.d8ecb89e.jpeg",
-  "static/css/main.a298cb9f.chunk.css.map": "/static/css/main.a298cb9f.chunk.css.map",
+  "static/media/worktimer.jpg": "/static/media/worktimer.d317beb1.jpg",
+  "static/media/tradingpit.jpg": "/static/media/tradingpit.e0db9a1c.jpg",
+  "static/css/main.ebea659b.chunk.css.map": "/static/css/main.ebea659b.chunk.css.map",
   "index.html": "/index.html",
-  "precache-manifest.c36d3402f043487294406ce1f22fbbe0.js": "/precache-manifest.c36d3402f043487294406ce1f22fbbe0.js",
+  "precache-manifest.494e0c08aea7969068ad9a6469c7ac37.js": "/precache-manifest.494e0c08aea7969068ad9a6469c7ac37.js",
   "service-worker.js": "/service-worker.js"
 }
