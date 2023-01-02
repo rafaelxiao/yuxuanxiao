@@ -21,9 +21,9 @@ function Home() {
                 desc={content.introPrompt}
                 character={content.introChar}/>
 
-            <Projects title={content.navProjects} id='projects'/>
+            <Projects title={content.navProjects} id='projects' projects={content.projects}/>
 
-            <section id='skills'>
+            {/* <section id='skills'>
                 <h1>{content.navSkills}</h1>
                 <p></p>
             </section>
@@ -35,7 +35,7 @@ function Home() {
                 <p></p>
             </section>
 
-            <div style={{"height": "500px"}}></div>
+            <div style={{"height": "500px"}}></div> */}
 
             <Footer />
 

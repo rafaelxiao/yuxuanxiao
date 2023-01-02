@@ -1,12 +1,16 @@
 import React from "react";
 import "../styles/ProjectCard.css";
 
-function ProjectCard() {
+function ProjectCard( { img_url, project_url, title, desc } ) {
     return (
         <div className="project_card">
-            <img src={require("../images/main.jpeg")} className="card_image"></img>
-            <h3 className="title">Project</h3>
-            <div className="desc"><p>this is a sample project that is still in development</p></div>
+            <img src={img_url} className="card_image"></img>
+            <div className="text_area">
+                <p className="desc">{desc}</p>
+                <button className="look" onClick={()=> {
+                    window.open(project_url, '_blank');
+                }}>{title}</button>
+            </div>
         </div>
     );
 }
