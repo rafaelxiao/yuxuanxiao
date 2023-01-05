@@ -1,0 +1,29 @@
+.skills {
+    background-color: #145DA020;
+    padding-top: 3vh;
+    padding-bottom: 2vh;
+    text-align: left;
+    padding-left: 5vw;
+    
+}
+
+.skills .title {
+    font-size: 18px;
+    margin-bottom: 0;
+    padding-bottom: 3vh;
+    font-weight: 800;
+    color: gray;
+    letter-spacing: 18px;
+}
+
+.skills .category {
+    font-size: 18px;
+    font-weight: 800;
+    padding-bottom: 1vh;
+
+}
+
+.skills .desc {
+    padding-bottom: 3vh;
+    font-size: 16px;
+}

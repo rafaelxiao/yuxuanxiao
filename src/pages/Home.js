@@ -5,6 +5,7 @@ import "../styles/Home.css"
 import Intro from "../components/Intro";
 import Footer from "../components/Footer";
 import Projects from "../components/Projects";
+import Skills from "../components/Skills";
 
 function Home() {
     
@@ -21,7 +22,10 @@ function Home() {
                 desc={content.introPrompt}
                 character={content.introChar}/>
 
+            <Skills title={content.navSkills} id='skills' skills={content.skills}/>
+
             <Projects title={content.navProjects} id='projects' projects={content.projects}/>
+
 
             {/* <section id='skills'>
                 <h1>{content.navSkills}</h1>

@@ -32,9 +32,8 @@ function Navbar( {language, setLanguage} ) {
 
         <div className="links">
             <AnchorLink href="#intro" offset='100' onClick={()=>setExpandNavbar(false)}> { content.navHome }</AnchorLink>
-            <AnchorLink href="#projects" onClick={()=>setExpandNavbar(false)}> { content.navProjects }</AnchorLink>
-            <AnchorLink href="#skills" onClick={()=>setExpandNavbar(false)}> { content.navSkills }</AnchorLink>
-            <AnchorLink href="#experience" onClick={()=>setExpandNavbar(false)}> { content.navExperience }</AnchorLink>
+            <AnchorLink href="#projects" offset='-100' onClick={()=>setExpandNavbar(false)}> { content.navProjects }</AnchorLink>
+            <AnchorLink href="#skills" offset='150' onClick={()=>setExpandNavbar(false)}> { content.navSkills }</AnchorLink>
         </div>
 
 

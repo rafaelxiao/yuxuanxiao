@@ -5,8 +5,8 @@
     align-items: center;
     justify-content: flex-end;
     position: relative;
-    width: 160px;
-    height: 220px;
+    width: 220px;
+    height: 300px;
     border-radius: 0.5em;
     overflow: hidden;
     background-color: #2E8BC015;
@@ -24,16 +24,16 @@ div.project_card:hover {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height: 35%;
+    height: 40%;
 }
 
 .project_card .look {
     /* margin-top: 1vh; */
     margin-bottom: 1vh;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 300;
     width: 95%;
-    background-color: #2E8BC0;
+    background-color: #0C2D48;
     border: none;
     padding: 3px;
     color: white;
@@ -41,7 +41,7 @@ div.project_card:hover {
 }
 
 .project_card button.look:hover {
-    background-color: #2E8BC095;
+    background-color: #0C2D4895;
 }
 
 .project_card .desc {
@@ -51,7 +51,7 @@ div.project_card:hover {
     padding: 0;
     justify-content: center;
     align-items: center;
-    font-size: 12px;
+    font-size: 14px;
     width: 90%;
     /* display: none; */
 }
