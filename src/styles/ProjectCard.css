@@ -6,16 +6,16 @@
     justify-content: flex-end;
     position: relative;
     width: 220px;
-    height: 300px;
-    border-radius: 0.5em;
+    height: 310px;
+    border-radius: 0.2em;
     overflow: hidden;
-    background-color: #2E8BC015;
-    margin: 1vw;
+    background-color: #2E8BC008;
     transition: 0.5s;
 }
 
 div.project_card:hover {
     scale: 1.05;
+    background-color: #2E8BC015;
 }
 
 .project_card .text_area {
@@ -24,16 +24,15 @@ div.project_card:hover {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height: 40%;
+    height: 43%;
 }
 
 .project_card .look {
-    /* margin-top: 1vh; */
     margin-bottom: 1vh;
     font-size: 14px;
     font-weight: 300;
     width: 95%;
-    background-color: #0C2D48;
+    background-color: #0C2D4895;
     border: none;
     padding: 3px;
     color: white;
@@ -41,7 +40,7 @@ div.project_card:hover {
 }
 
 .project_card button.look:hover {
-    background-color: #0C2D4895;
+    background-color: #0C2D48;
 }
 
 .project_card .desc {
@@ -53,6 +52,7 @@ div.project_card:hover {
     align-items: center;
     font-size: 14px;
     width: 90%;
+    line-height: 20px;
     /* display: none; */
 }
 
@@ -65,12 +65,17 @@ div.project_card:hover {
 
 
 .project_card .card_image {
-    width: 96%;
-    height: 55%;
+    width: 93%;
+    height: 50%;
     position: absolute;
-    top: 1%;
+    top: 2%;
     object-fit: cover;
     object-position: top;
     border-radius: 0.5em;
+    opacity: 0.6;
     /* aspect-ratio: '3/2'; */
+}
+
+div.project_card:hover .card_image {
+    opacity: 1;
 }
