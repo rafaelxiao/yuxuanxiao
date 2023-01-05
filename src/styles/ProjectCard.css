@@ -11,6 +11,7 @@
     overflow: hidden;
     background-color: #2E8BC008;
     transition: 0.5s;
+    margin-bottom: 2vh;
 }
 
 div.project_card:hover {

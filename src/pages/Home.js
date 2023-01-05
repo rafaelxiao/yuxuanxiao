@@ -27,20 +27,6 @@ function Home() {
             <Projects title={content.navProjects} id='projects' projects={content.projects}/>
 
 
-            {/* <section id='skills'>
-                <h1>{content.navSkills}</h1>
-                <p></p>
-            </section>
-
-            <div style={{"height": "500px"}}></div>
-
-            <section id='experience'>
-                <h1>{content.navExperience}</h1>
-                <p></p>
-            </section>
-
-            <div style={{"height": "500px"}}></div> */}
-
             <Footer />
 
         
