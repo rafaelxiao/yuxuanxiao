@@ -40,6 +40,7 @@
 @media screen and (max-width: 900px) {
     .projects_panel {
         padding-top: 3vh;
+        padding-right: 5vw;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         justify-items: center;
@@ -50,6 +51,7 @@
 @media screen and (max-width: 600px) {
     .projects_panel {
         padding-top: 3vh;
+        padding-right: 5vw;
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         justify-items: center;
