@@ -14,7 +14,7 @@ function Navbar( {language, setLanguage} ) {
         <div className="logo">YX</div>
 
         <div className="language" onClick={() => {
-            if (language == 'CN') {
+            if (language === 'CN') {
                 setLanguage('EN');
             } else {
                 setLanguage('CN');

@@ -54,11 +54,20 @@
 }
 
 .language {
-    color: white;
     margin-left: 28vw;
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 500;
     cursor: pointer;
+    background-color: #ffffff60;
+    color: #0C2D48;
+    padding: 5px;
+    border-radius: 5px;
+    min-width: 2vh;
+}
+
+.language:hover {
+    color: white;
+    background-color: #ffffff80;
 }
 
 #open .language {

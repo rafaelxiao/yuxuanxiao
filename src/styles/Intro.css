@@ -9,6 +9,7 @@
 
 
 .content {
+    padding-top: 1vh;
     display: flex;
     flex-direction: column;
     padding-left: 5vw;
