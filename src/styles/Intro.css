@@ -4,9 +4,15 @@
     margin: 0;
     text-align: left;
     background-color: #B1D4E030;
+    position: relative;
     /* padding-bottom: 5vh; */
 }
 
+.area .anim {
+    position: absolute;
+    top: 1vh;
+    left: 4vw;
+}
 
 .content {
     padding-top: 1vh;
