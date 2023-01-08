@@ -20,7 +20,8 @@ function Home() {
             <Intro loc_id='intro' 
                 main={content.introMe} 
                 desc={content.introPrompt}
-                character={content.introChar}/>
+                character={content.introChar}
+                img_src={content.introBackgroundImg}/>
 
             <Skills title={content.navSkills} id='skills' skills={content.skills}/>
 

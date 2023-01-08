@@ -19,7 +19,15 @@ function Navbar( {language, setLanguage} ) {
             } else {
                 setLanguage('CN');
             }
-        }}>{language === 'CN' ? 'English' : '中文'}</div>
+        }}>
+            <img src={language === 'CN' 
+                ? require('../images/england.png')
+                : require('../images/china.png')} 
+                className = 'language_flag'
+            />
+            <div>{language === 'CN' ? 'English' : '中文'}</div>
+        
+        </div>
 
         <div className="toggleButton">
             <button onClick={() => {
@@ -32,8 +40,8 @@ function Navbar( {language, setLanguage} ) {
 
         <div className="links">
             <AnchorLink href="#intro" offset='100' onClick={()=>setExpandNavbar(false)}> { content.navHome }</AnchorLink>
-            <AnchorLink href="#projects" offset='-100' onClick={()=>setExpandNavbar(false)}> { content.navProjects }</AnchorLink>
-            <AnchorLink href="#skills" offset='150' onClick={()=>setExpandNavbar(false)}> { content.navSkills }</AnchorLink>
+            <AnchorLink href="#projects" offset='20' onClick={()=>setExpandNavbar(false)}> { content.navProjects }</AnchorLink>
+            <AnchorLink href="#skills" offset='40' onClick={()=>setExpandNavbar(false)}> { content.navSkills }</AnchorLink>
         </div>
 
 

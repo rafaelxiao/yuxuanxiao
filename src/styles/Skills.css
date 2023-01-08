@@ -1,7 +1,7 @@
 .skills {
-    background-color: #145DA020;
-    padding-top: 3vh;
-    padding-bottom: 2vh;
+    background-color: #B1D4E030;
+    padding-top: 8vh;
+    padding-bottom: 5vh;
     text-align: left;
     padding-left: 5vw;
     
@@ -16,20 +16,39 @@
     letter-spacing: 14px;
 }
 
+.skills .skill_section {
+    display: flex;
+    flex-direction: row;
+}
+
+.skills .skill_section .icon_img {
+    /* width: 30px; */
+    height: 50px;
+    /* position: absolute; */
+}
+
+.skills .skill_section .text_area {
+    display: flex;
+    flex-direction: column;
+}
+
 .skills .category {
     font-size: 18px;
     font-weight: 800;
     padding-bottom: 1vh;
+    padding-left: 5vw;
+    /* width: ; */
 
 }
 
 .skills .desc {
-    padding-bottom: 3vh;
+    padding-bottom: 5vh;
     font-size: 16px;
+    padding-left: 5vw;
 }
 
 .skills .desc, .title, .category {
-    width: 90vw;
+    /* width: 90vw; */
 }
 
 @media screen and (max-width: 900px) {

@@ -5,11 +5,11 @@
     align-items: center;
     justify-content: flex-end;
     position: relative;
-    width: 250px;
+    width: 260px;
     height: 310px;
-    border-radius: 0.2em;
+    border-radius: 0.5rem;
     overflow: hidden;
-    background-color: #2E8BC008;
+    background-color: #2E8BC010;
     transition: 0.5s;
     margin-bottom: 2vh;
 }
@@ -72,11 +72,28 @@ div.project_card:hover {
     top: 2%;
     object-fit: cover;
     object-position: top;
-    border-radius: 0.5em;
+    /* border-radius: 0.5em; */
     opacity: 0.6;
     /* aspect-ratio: '3/2'; */
 }
 
 div.project_card:hover .card_image {
     opacity: 1;
+}
+
+ 
+@media screen and (max-width: 600px) {
+    
+    .project_card {
+        width: 420px;
+        height: 360px;
+    }
+    
+    .project_card .text_area {
+        height: 30%;
+    }
+
+    .project_card .card_image {
+        height: 60%;
+    }
 }
