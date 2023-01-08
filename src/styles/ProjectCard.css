@@ -85,7 +85,7 @@ div.project_card:hover .card_image {
 @media screen and (max-width: 600px) {
     
     .project_card {
-        width: 420px;
+        width: 350px;
         height: 360px;
     }
     
