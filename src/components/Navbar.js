@@ -40,8 +40,9 @@ function Navbar( {language, setLanguage} ) {
 
         <div className="links">
             <AnchorLink href="#intro" offset='100' onClick={()=>setExpandNavbar(false)}> { content.navHome }</AnchorLink>
-            <AnchorLink href="#projects" offset='20' onClick={()=>setExpandNavbar(false)}> { content.navProjects }</AnchorLink>
+            <AnchorLink href="#projects" offset='40' onClick={()=>setExpandNavbar(false)}> { content.navProjects }</AnchorLink>
             <AnchorLink href="#skills" offset='40' onClick={()=>setExpandNavbar(false)}> { content.navSkills }</AnchorLink>
+            <AnchorLink href="#charts" offset='60' onClick={()=>setExpandNavbar(false)}> { content.navCharts }</AnchorLink>
         </div>
 
 

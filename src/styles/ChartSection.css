@@ -1,0 +1,25 @@
+.chart_section {
+    background-color: #B1D4E030;
+    padding-top: 8vh;
+    padding-bottom: 5vh;
+    text-align: left;
+    padding-left: 5vw;
+    
+}
+
+.chart_title {
+    font-size: 18px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    text-align: left;
+    font-weight: 800;
+    color: gray;
+    letter-spacing: 14px;
+}
+
+.chart_charts {
+    padding-top: 3vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

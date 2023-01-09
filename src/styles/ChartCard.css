@@ -1,0 +1,18 @@
+.chart_card {
+    background-color: #80808015;
+    margin: 1%;
+    border-radius: 2rem;
+    width: 45vw;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* padding: 0; */
+}
+
+
+@media screen and (max-width: 1200px) {
+    .chart_card {
+        width: 90vw;
+    }
+}

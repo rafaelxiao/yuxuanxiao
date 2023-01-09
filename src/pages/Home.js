@@ -6,6 +6,7 @@ import Intro from "../components/Intro";
 import Footer from "../components/Footer";
 import Projects from "../components/Projects";
 import Skills from "../components/Skills";
+import ChartSection from "../components/ChartSection";
 
 function Home() {
     
@@ -27,6 +28,7 @@ function Home() {
 
             <Projects title={content.navProjects} id='projects' projects={content.projects}/>
 
+            <ChartSection title={content.navCharts} id='charts'/>
 
             <Footer />
 
