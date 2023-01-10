@@ -35,6 +35,7 @@ function Navbar( {language, setLanguage} ) {
                     ? require('../images/england.png')
                     : require('../images/china.png')} 
                     className = 'language_flag'
+                    alt = "language flag"
                 />
                 <div>{language === 'CN' ? 'English' : '中文'}</div>
             

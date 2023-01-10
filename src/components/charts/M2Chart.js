@@ -7,7 +7,7 @@ import React from "react";
 
 
 export default function M2Chart() {
-    const { data, status, _, loaded } = useRequest(PostUrls.m2.url, 'get', PostUrls.m2.params);
+    const { data, status, loaded } = useRequest(PostUrls.m2.url, 'get', PostUrls.m2.params);
     var content = null;
     if (loaded && status === 200) {
         var records = [...data.result.data].reverse();

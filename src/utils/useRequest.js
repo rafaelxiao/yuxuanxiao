@@ -18,7 +18,7 @@ export default function useRequest(url, method, params) {
                         params: params,
                     }
                 ).then((response) => {
-                    if(response.status == 200) {
+                    if(response.status === 200) {
                         setData(response.data);
                     }
                     setStatus(response.status);

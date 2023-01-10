@@ -1,6 +1,5 @@
 import React from "react";
 import "../styles/ProjectCard.css";
-import { Link } from "react-router-dom";
 
 function ProjectCard( { img_url, project_url, title, desc } ) {
     return (

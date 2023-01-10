@@ -6,7 +6,7 @@ import PostUrls from "../../models/PostUrls";
 import React from "react";
 
 export default function PMIChart() {
-    const { data, status, error, loaded } = useRequest(PostUrls.pmi.url, 'get', PostUrls.pmi.params);
+    const { data, status, loaded } = useRequest(PostUrls.pmi.url, 'get', PostUrls.pmi.params);
     var content = null;
     if (loaded && status === 200) {
         var records = [...data.result.data].reverse();

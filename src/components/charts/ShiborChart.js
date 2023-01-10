@@ -6,7 +6,7 @@ import basicChartOps from '../../utils/basicChartOps';
 import PostUrls from '../../models/PostUrls';
 
 export default function ShiborCharts() {
-    const { data, status, _, loaded } = useRequest(PostUrls.shibor.url, 'get', PostUrls.shibor.params);
+    const { data, status, loaded } = useRequest(PostUrls.shibor.url, 'get', PostUrls.shibor.params);
     var content = null;
     if (loaded && status === 200) {
         var records = [...data.records].reverse();

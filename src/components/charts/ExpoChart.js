@@ -8,8 +8,8 @@ import useWindowSize from "../../utils/useWindowSize";
 
 
 export default function ExpoChart() {
-    const { data, status, error, loaded } = useRequest(PostUrls.expo.url, 'get', PostUrls.expo.params);
-    const { height, width } = useWindowSize();
+    const { data, status, loaded } = useRequest(PostUrls.expo.url, 'get', PostUrls.expo.params);
+    const { width } = useWindowSize();
     var content = null;
     if (loaded && status === 200) {
         var records = [...data.result.data].reverse();

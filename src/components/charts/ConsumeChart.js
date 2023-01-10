@@ -7,8 +7,8 @@ import React from "react";
 
 
 export default function ConsumeChart() {
-    const { data: faith_data, status: faith_status, _, loaded: faith_loaded } = useRequest(PostUrls.faith.url, 'get', PostUrls.faith.params);
-    const { data: retail_data, status: retail_status, __, loaded: retail_loaded } = useRequest(PostUrls.retail.url, 'get', PostUrls.retail.params);
+    const { data: faith_data, status: faith_status, loaded: faith_loaded } = useRequest(PostUrls.faith.url, 'get', PostUrls.faith.params);
+    const { data: retail_data, status: retail_status, loaded: retail_loaded } = useRequest(PostUrls.retail.url, 'get', PostUrls.retail.params);
 
     var content = null;
     if (faith_loaded && faith_status === 200 && retail_loaded && retail_status === 200) {

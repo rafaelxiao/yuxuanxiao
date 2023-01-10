@@ -7,7 +7,7 @@ import React from "react";
 
 
 export default function DepositChart() {
-    const { data, status, _, loaded } = useRequest(PostUrls.deposit.url, 'get', PostUrls.deposit.params);
+    const { data, status, loaded } = useRequest(PostUrls.deposit.url, 'get', PostUrls.deposit.params);
 
     var content = null;
     if (loaded && status === 200) {

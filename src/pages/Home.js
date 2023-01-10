@@ -6,7 +6,7 @@ import Intro from "../components/Intro";
 import Footer from "../components/Footer";
 import Projects from "../components/Projects";
 import Skills from "../components/Skills";
-import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import { HashRouter as Router, Route, Routes} from "react-router-dom";
 import ChartPage from "./ChartPage";
 
 function Home() {
