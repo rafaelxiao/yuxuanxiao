@@ -1,6 +1,6 @@
 .navbar {
     background: #0C2D48;
-    height: 8vh;
+    height: max(8vh, 80px);
     width: 100%;
     position: fixed;
     top: 0px;
@@ -14,7 +14,9 @@
     color: white;
     font-size: 60px;
     font-weight: 100;
-    padding-left: 5vw;
+    margin-left: 5vw;
+    /* position: absolute; */
+    /* justify-self: flex-start; */
 }
 
 #open .logo {
@@ -23,11 +25,14 @@
 
 .links {
     display: flex;
+    /* align-self: flex-end; */
     justify-content: space-evenly;
     align-items: center;
     flex-direction: horizontal;
     height: 100%;
-    width: 50%;
+    margin-left: min(15vw, 1200px);
+    width: min(53vw, 550px);
+
 }
 
 .links a {
@@ -35,6 +40,12 @@
     text-decoration: none;
     font-size: 16px;
     font-weight: 500;
+    /* margin-right: max(12px, 3vw); */
+}
+
+.links a:hover {
+    color: #B1D4E0;
+    /* margin-right: max(12px, 3vw); */
 }
 
 #open {
@@ -46,7 +57,7 @@
 #open .links {
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 
 #open .links a {
@@ -54,7 +65,7 @@
 }
 
 .language {
-    margin-left: 28vw;
+    /* margin-left: 28vw; */
     font-size: 10px;
     font-weight: 500;
     cursor: pointer;
@@ -62,11 +73,12 @@
     color: #0C2D48;
     padding: 2px 5px;
     border-radius: 5px;
-    min-width: 7.5vw;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
+    margin-right: 3vw;
+    /* width: 60px; */
 }
 
 .language .language_flag {
@@ -115,19 +127,13 @@
     }
 }
 
-@media screen and (min-width: 600px) {
 
-    .language {
-        min-width: 7.5vw;
+@media screen and (max-width: 900px) {
+
+    .links a {
+        font-size: 14px;
     }
-
-}
-
-@media screen and (min-width: 900px) {
-
-    .language {
-        min-width: 4vw;
-    }
+    
 
 }
 
@@ -137,6 +143,7 @@
     }
 
     .language {
-        margin-left: 40vw;
+        margin-left: min(50vw, 150px);
+        margin-right: 0;
     }
 }

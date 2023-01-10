@@ -1,14 +1,16 @@
-import useRequest from "../utils/useRequest";
+import useRequest from "../../utils/useRequest";
 import EchartsReact from "echarts-for-react";
-import "../styles/ChartCard.css";
-import basicChartOps from "../utils/basicChartOps";
-import PostUrls from "../models/PostUrls";
+import "../../styles/ChartCard.css";
+import basicChartOps from "../../utils/basicChartOps";
+import PostUrls from "../../models/PostUrls";
 import React from "react";
+import useWindowSize from "../../utils/useWindowSize";
 
 
 export default function ExpoChart() {
-    const { data, status, error, loaded } = useRequest(PostUrls.expo, 'get');
-    var content = (<div>Loading...</div>);
+    const { data, status, error, loaded } = useRequest(PostUrls.expo.url, 'get', PostUrls.expo.params);
+    const { height, width } = useWindowSize();
+    var content = null;
     if (loaded && status === 200) {
         var records = [...data.result.data].reverse();
         const endLabelOption = {
@@ -22,7 +24,7 @@ export default function ExpoChart() {
                 },
             },
         }
-        var option = {
+        const option = {
             ...basicChartOps('海关进出口金额'),
             xAxis: [
                 {
@@ -34,10 +36,13 @@ export default function ExpoChart() {
             yAxis: [
                 {
                     type: 'value',
+                    axisLabel: {
+                        fontSize: width > 600 ? 12 : 10,
+                    },
                 },
             ],
             series: [
-               {
+                {
                     name: '累计出口(亿美元)',
                     data: records.map((item) => Math.round(item['EXIT_ACCUMULATE'] / 10000) / 100) ,
                     type: 'line',
@@ -51,8 +56,8 @@ export default function ExpoChart() {
                         opacity: 0.8,
                     },
                     endLabel: endLabelOption,
-               },
-               {
+                },
+                {
                     name: '累计进口(亿美元)',
                     data: records.map((item) => Math.round(item['IMPORT_ACCUMULATE'] / 10000)  / 100),
                     type: 'line',
@@ -68,12 +73,15 @@ export default function ExpoChart() {
                     endLabel: endLabelOption,
                 },
             ]
+        
         }
-        content = <EchartsReact style={{ height: '350px', width: '100%' }} option={option} />
+        content = <EchartsReact className='chart_graph' option={option} />
     }
     return (
-        <div className='chart_card'>
-            {content}
-        </div>
+        content !== null ? (
+            <div className='chart_card'>
+                {content}
+            </div>
+        ) : null
     )
 }

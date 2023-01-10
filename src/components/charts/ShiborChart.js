@@ -1,13 +1,13 @@
 import EChartsReact from 'echarts-for-react';
-import '../styles/ChartCard.css';
+import '../../styles/ChartCard.css';
 import React from 'react';
-import useRequest from '../utils/useRequest';
-import basicChartOps from '../utils/basicChartOps';
-import PostUrls from '../models/PostUrls';
+import useRequest from '../../utils/useRequest';
+import basicChartOps from '../../utils/basicChartOps';
+import PostUrls from '../../models/PostUrls';
 
 export default function ShiborCharts() {
-    const { data, status, error, loaded } = useRequest(PostUrls.shibor, 'get');
-    var content = (<div>Loading...</div>);
+    const { data, status, _, loaded } = useRequest(PostUrls.shibor.url, 'get', PostUrls.shibor.params);
+    var content = null;
     if (loaded && status === 200) {
         var records = [...data.records].reverse();
         const endLabelOption = {
@@ -82,12 +82,14 @@ export default function ShiborCharts() {
             ]
         }
 
-        content = <EChartsReact style={{ height: '350px', width: '100%' }} option={option} />
+        content = <EChartsReact className='chart_graph' option={option} />
 
     }
     return (
-        <div className='chart_card'>
-            {content}
-        </div>
+        content !== null ? (
+            <div className='chart_card'>
+                {content}
+            </div>
+        ) : null
     )
 }

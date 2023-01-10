@@ -5,7 +5,7 @@
     text-align: left;
     /* background-color: #B1D4E030; */
     position: relative;
-    height: 40vh;
+    height: max(40vh, 300px);
     padding-bottom: 5vh;
 }
 
@@ -22,7 +22,7 @@
 
 
 .content {
-    padding-top: 3vh;
+    padding-top: 2vh;
     /* padding-bottom: 10vh; */
     display: flex;
     flex-direction: column;
@@ -32,6 +32,32 @@
     min-height: 300px;
     z-index: 0;
     position: absolute;
+}
+
+.action_button {
+    margin-top: 2vh;
+    width: max(35vw, 220px);
+    display: flex;
+    justify-content: space-between;
+}
+
+.action_button button {
+    border: none;
+    width: max(15vw, 100px);
+    height: max(4vh, 30px);
+    font-size: 14px;
+    background-color: #0C2D48ee;
+    border-radius: 0.3rem;
+    color: white;
+    font-weight: 300;
+}
+
+
+
+.action_button button:hover{
+    background-color: #145DA0;
+    transform: scale(1.03);
+    /* transition-duration: 500ms; */
 }
 
 .content .main {

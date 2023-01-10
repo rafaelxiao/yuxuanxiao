@@ -1,13 +1,13 @@
-import useRequest from "../utils/useRequest";
+import useRequest from "../../utils/useRequest";
 import EchartsReact from "echarts-for-react";
-import "../styles/ChartCard.css";
-import basicChartOps from "../utils/basicChartOps";
-import PostUrls from "../models/PostUrls";
+import "../../styles/ChartCard.css";
+import basicChartOps from "../../utils/basicChartOps";
+import PostUrls from "../../models/PostUrls";
 import React from "react";
 
 export default function PMIChart() {
-    const { data, status, error, loaded } = useRequest(PostUrls.pmi, 'get');
-    var content = (<div>Loading...</div>);
+    const { data, status, error, loaded } = useRequest(PostUrls.pmi.url, 'get', PostUrls.pmi.params);
+    var content = null;
     if (loaded && status === 200) {
         var records = [...data.result.data].reverse();
         const endLabelOption = {
@@ -83,16 +83,18 @@ export default function PMIChart() {
                 max: 55,
                 color: ['orange', '#588BAE'],
                 itemWidth: 15,
-                itemHeight: 100,
-                right: 35,
-                top: 60,
+                itemHeight: 80,
+                right: 30,
+                top: 50,
             },
         }
-        content = <EchartsReact style={{ height: '350px', width: '100%' }} option={option} />
+        content = <EchartsReact className='chart_graph' option={option} />
     }
     return (
-        <div className='chart_card'>
-            {content}
-        </div>
+        content !== null ? (
+            <div className='chart_card'>
+                {content}
+            </div>
+        ) : null
     )
 }

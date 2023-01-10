@@ -1,16 +1,17 @@
-import useRequest from "../utils/useRequest";
+import useRequest from "../../utils/useRequest";
 import EchartsReact from "echarts-for-react";
-import "../styles/ChartCard.css";
-import basicChartOps from "../utils/basicChartOps";
-import PostUrls from "../models/PostUrls";
+import "../../styles/ChartCard.css";
+import basicChartOps from "../../utils/basicChartOps";
+import PostUrls from "../../models/PostUrls";
 import React from "react";
 
 
 export default function M2Chart() {
-    const { data, status, error, loaded } = useRequest(PostUrls.m2, 'get');
-    var content = (<div>Loading...</div>);
+    const { data, status, _, loaded } = useRequest(PostUrls.m2.url, 'get', PostUrls.m2.params);
+    var content = null;
     if (loaded && status === 200) {
         var records = [...data.result.data].reverse();
+        var basicCurreny = records.map((item) => Math.round(item['BASIC_CURRENCY'] / 100) / 100, 2)
         var origOption = basicChartOps('货币供应量');
         var option = {
             ...origOption,
@@ -26,7 +27,7 @@ export default function M2Chart() {
                 },
                 {
                     type: 'value',
-                    min: 200,
+                    min: Math.round(basicCurreny.reduce((a, b) => a < b ? a : b) * 0.95),
                     splitLine: {
                         show: false,
                     }
@@ -68,7 +69,7 @@ export default function M2Chart() {
                 {
                     name: 'M2数量(万亿元)',
                     type: 'line',
-                    data: records.map((item) => Math.round(item['BASIC_CURRENCY'] / 100) / 100, 2),
+                    data: basicCurreny,
                     yAxisIndex: 1,
                     emphasis: {
                         focus: 'series'
@@ -78,11 +79,14 @@ export default function M2Chart() {
                 },
             ]
         }
-        content = <EchartsReact style={{ height: '350px', width: '100%' }} option={option} />
+        content = <EchartsReact className='chart_graph' option={option} />
     }
+    
     return (
-        <div className='chart_card'>
-            {content}
-        </div>
+        content !== null ? (
+            <div className='chart_card'>
+                {content}
+            </div>
+        ) : null
     )
 }

@@ -1,8 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-export default function useRequest(url, method) {
-
+export default function useRequest(url, method, params) {
     const [data, setData] = useState(null);
     const [status, setStatus] = useState(null);
     const [error, setError] = useState("");
@@ -10,12 +9,13 @@ export default function useRequest(url, method) {
 
     useEffect(() => {
         // initiate an async function to ensure getting the data
-        (async() => {
+        return async() => {
             try {
                 await axios.request(
                     {
                         url: url,
                         method: method,
+                        params: params,
                     }
                 ).then((response) => {
                     if(response.status == 200) {
@@ -28,8 +28,7 @@ export default function useRequest(url, method) {
             } finally {
                 setLoaded(true);
             }
-        })()
+        }
     }, []);
-
     return {data, status, error, loaded};
 }

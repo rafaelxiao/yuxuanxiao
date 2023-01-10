@@ -1,15 +1,16 @@
 import React from "react";
 import "../styles/ProjectCard.css";
+import { Link } from "react-router-dom";
 
 function ProjectCard( { img_url, project_url, title, desc } ) {
     return (
-        <div className="project_card">
+        <div className="project_card" onClick={()=> {
+            window.open(project_url, '_blank');
+        }}>
             <img src={img_url} className="card_image" alt='img'></img>
             <div className="text_area">
+                <div className="text_title">{title}</div>
                 <p className="desc">{desc}</p>
-                <button className="look" onClick={()=> {
-                    window.open(project_url, '_blank');
-                }}>{title}</button>
             </div>
         </div>
     );

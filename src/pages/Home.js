@@ -6,33 +6,46 @@ import Intro from "../components/Intro";
 import Footer from "../components/Footer";
 import Projects from "../components/Projects";
 import Skills from "../components/Skills";
-import ChartSection from "../components/ChartSection";
+import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import ChartPage from "./ChartPage";
 
 function Home() {
     
     const [language, setLanguage] = React.useState('CN');
     const content = language === 'CN' ? ContentCN: ContentEN;
 
-    return (
-        <div className="home">
-            <Navbar language={language} 
-                setLanguage={setLanguage}/>
-
+    const mainArea = (
+        <div>                
             <Intro loc_id='intro' 
                 main={content.introMe} 
                 desc={content.introPrompt}
                 character={content.introChar}
-                img_src={content.introBackgroundImg}/>
+                img_src={content.introBackgroundImg}
+                contact={content.displayContact}
+                eco_watcher={content.displayCharts}
+            />
 
             <Skills title={content.navSkills} id='skills' skills={content.skills}/>
 
             <Projects title={content.navProjects} id='projects' projects={content.projects}/>
 
-            <ChartSection title={content.navCharts} id='charts'/>
+        </div>
+    )
 
-            <Footer />
+    return (
+        <div className="home">
+            <Router>
+                <Navbar language={language} 
+                    setLanguage={setLanguage}/>
 
-        
+                <Routes>
+                    <Route path="/" element={mainArea} />
+                    <Route path="/economywatcher" element={<ChartPage title={content.navCharts} id='charts'/>} />
+                </Routes>
+
+                <Footer />
+            </Router>
+
         </div>
     );
 }

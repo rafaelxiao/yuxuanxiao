@@ -1,5 +1,5 @@
 .home {
-    padding-top: 8vh;
+    padding-top: max(8vh, 80px);
 }
 
 

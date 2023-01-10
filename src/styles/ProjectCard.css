@@ -7,42 +7,34 @@
     position: relative;
     width: 260px;
     height: 310px;
-    border-radius: 0.5rem;
     overflow: hidden;
-    background-color: #2E8BC010;
-    transition: 0.5s;
-    margin-bottom: 2vh;
+    background-color: transparent;
+    margin-bottom: 3vh;
 }
 
 div.project_card:hover {
-    scale: 1.05;
-    background-color: #2E8BC015;
+    transform: scale(1.02);
+    background-color: #2E8BC020;
+    /* border: 0.5px solid #2E8BC050; */
 }
 
 .project_card .text_area {
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: start;
     align-items: center;
     height: 43%;
 }
 
-.project_card .look {
-    margin-bottom: 1vh;
+.project_card .text_title {
     font-size: 14px;
-    font-weight: 300;
-    width: 95%;
-    background-color: #0C2D4895;
-    border: none;
-    padding: 3px;
-    color: white;
-    border-radius: 3px;
+    font-weight: 700;
+    padding-bottom: 1vh;
+    padding-top: 1vh;
+    color: #0C2D48;
 }
 
-.project_card button.look:hover {
-    background-color: #0C2D48;
-}
 
 .project_card .desc {
     top: 0;
@@ -67,14 +59,13 @@ div.project_card:hover {
 
 .project_card .card_image {
     width: 93%;
-    height: 50%;
+    height: 53%;
     position: absolute;
     top: 2%;
     object-fit: cover;
     object-position: top;
-    /* border-radius: 0.5em; */
-    opacity: 0.6;
-    /* aspect-ratio: '3/2'; */
+    opacity: 0.7;
+    border-radius: 0.5rem;
 }
 
 div.project_card:hover .card_image {
@@ -94,6 +85,24 @@ div.project_card:hover .card_image {
     }
 
     .project_card .card_image {
-        height: 60%;
+        height: 65%;
     }
+}
+
+@media screen and (min-width: 1500px) {
+    
+    .project_card {
+        width: min(20vw, 400px);
+        height: 330px;
+        margin-right: 3vw;
+    }
+
+    .project_card .text_area {
+        height: 30%;
+    }
+
+    .project_card .card_image {
+        height: 65%;
+    }
+    
 }

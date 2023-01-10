@@ -1,7 +1,8 @@
 .chart_card {
     background-color: #80808015;
     margin: 1%;
-    border-radius: 2rem;
+    margin-bottom: 3vh;
+    border-radius: 1rem;
     width: 45vw;
     height: 350px;
     display: flex;
@@ -10,9 +11,24 @@
     /* padding: 0; */
 }
 
+.chart_graph {
+    width: 100% !important;
+    height: 350px !important;
+}
+
 
 @media screen and (max-width: 1200px) {
     .chart_card {
         width: 90vw;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .chart_graph {
+        height: 300px !important;
+    }
+
+    .chart_card {
+        height: 300px;
     }
 }
