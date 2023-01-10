@@ -15,7 +15,7 @@ export default function ConsumeChart() {
         var faithRecords = [...faith_data.result.data].reverse();
         var retailRecords = [...retail_data.result.data].reverse();
         const faithIndex = faithRecords.map((item) => item['CONSUMERS_FAITH_INDEX']);
-        const retailIndex = retailRecords.map((item) => item['RETAIL_TOTAL']);
+        const retailIndex = retailRecords.map((item) => Math.round(item['RETAIL_TOTAL'] / 10) / 1000);
 
         const option = {
             ...basicChartOps('消费信心与消费品零售总额'),
@@ -41,7 +41,7 @@ export default function ConsumeChart() {
             ],
             series: [
                 {
-                    name: '社会消费品零售总额(亿元)',
+                    name: '社会消费品零售总额(万亿元)',
                     type: 'line',
                     data: retailIndex,
                     areaStyle: {},

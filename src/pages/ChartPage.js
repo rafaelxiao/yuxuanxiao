@@ -4,7 +4,7 @@ import ShiborCharts from '../components/charts/ShiborChart';
 import M2Chart from '../components/charts/M2Chart';
 import PMIChart from '../components/charts/PMIChart';
 import ExpoChart from '../components/charts/ExpoChart';
-import ConsumeChart from '../components/charts/CosumeChart';
+import ConsumeChart from '../components/charts/ConsumeChart';
 import DepositChart from '../components/charts/DepositChart';
 
 export default function ChartPage( {id, title} ) {
