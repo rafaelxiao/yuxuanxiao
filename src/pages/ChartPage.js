@@ -1,5 +1,5 @@
 import '../styles/ChartPage.css';
-import React from "react";
+import React, { useEffect } from "react";
 import ShiborCharts from '../components/charts/ShiborChart';
 import M2Chart from '../components/charts/M2Chart';
 import PMIChart from '../components/charts/PMIChart';
@@ -8,6 +8,11 @@ import ConsumeChart from '../components/charts/ConsumeChart';
 import DepositChart from '../components/charts/DepositChart';
 
 export default function ChartPage( {id, title} ) {
+
+    useEffect(() => {
+        document.title = "Economy Watcher";
+    }, []);
+
     return (
         <div className='chart_section' id={id}>
             <div className='chart_title'>{title}</div>
