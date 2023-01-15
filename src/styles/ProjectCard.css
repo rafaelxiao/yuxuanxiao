@@ -30,8 +30,8 @@ div.project_card:hover {
 .project_card .text_title {
     font-size: 14px;
     font-weight: 700;
-    padding-bottom: 1vh;
-    padding-top: 2vh;
+    padding-bottom: min(1vh, 30px);
+    padding-top: min(2vh, 30px);
     color: #0C2D48;
 }
 

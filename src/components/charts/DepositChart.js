@@ -65,7 +65,7 @@ export default function DepositChart() {
                     name: '增加(万亿元)',
                     type: 'bar',
                     stack: 'Total',
-                    color: '#588BAE',
+                    color: 'orange',
                     label: {
                         show: true,
                         position: 'top',
@@ -78,7 +78,7 @@ export default function DepositChart() {
                     name: '减少(万亿元)',
                     type: 'bar',
                     stack: 'Total',
-                    color: 'green',
+                    color: '#588BAE',
                     label: {
                         show: true,
                         position: 'bottom',

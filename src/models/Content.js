@@ -1,4 +1,6 @@
 const ContentEN = {
+    homeTitle: "Yuxuan Xiao Portfolio",
+    chartPageTitle: "Economy Watch",
     introMe: "Hi I am Yuxuan Xiao",
     introChar: "Data Analyst / Developer / Content Creator",
     introPrompt: "Veteran data analyst passionate on discovering and telling stories hides behind data. Extensive experience in business and finance with a MBA degree and CFA level 3 passed. Familiar with technology like machine learning, time series and neural network",
@@ -7,9 +9,9 @@ const ContentEN = {
     navProjects: "Projects",
     navExperience: "Experience",
     navSkills: "Skills",
-    navCharts: "Economy Watcher",
+    navCharts: "Economy Watch",
     navContact: "Contact",
-    displayCharts: "Eco-watcher",
+    displayCharts: "Economy Watch",
     displayContact: "Contact me",
     projects: [
         {title: 'Kaggle: Blindness Detection', desc: 'Kaggle Competetion Final Ranking: 30/2928. Using computer vision to identify diabetic retinopathy. Silver medal won.', img_url: require('../images/aptos2019.jpg'), project_url: "https://www.kaggle.com/competitions/aptos2019-blindness-detection/leaderboard"},
@@ -34,9 +36,36 @@ const ContentEN = {
             icon_url: require('../images/chart.png')
         },
     ],
+    contact: [
+        {
+            name: 'Email',
+            content: 'rafaelxiao@hotmail.com',
+            icon_url: require('../images/email.png'),
+        },
+
+        // {
+        //     name: 'Resume',
+        //     content: 'view my resume',
+        //     icon_url: require('../images/resume.png'),
+        // },
+
+        {
+            name: 'Wechat',
+            content: 'yuxuanism',
+            icon_url: require('../images/wechat.png'),
+        },
+        {
+            name: 'Douyin',
+            content: '七海原创',
+            icon_url: require('../images/douyin.png'),
+        },
+
+    ]
 }
 
 const ContentCN = {
+    homeTitle: "宇宣的小站",
+    chartPageTitle: "经济观察",
     introMe: "我是肖宇宣",
     introChar: "数据分析师 / 开发者 / 创作者",
     introPrompt: "经验丰富的数据分析师，习惯用数据发现和检验认知。擅长商业、金融领域数据挖掘与分析，拥有MBA学位及CFA三级，能够运用机器学习、时间序列、神经网络等技术实现基于海量数据的业务赋能",
@@ -70,6 +99,31 @@ const ContentCN = {
             category: '工具及框架', 
             desc: 'Hive、Spark、Pandas、Pytorch、TensorFlow、React、Flutter、Echarts、PPT',
             icon_url: require('../images/chart.png')
+        },
+    ],
+    contact: [
+        {
+            name: '邮件',
+            content: 'rafaelxiao@hotmail.com',
+            icon_url: require('../images/email.png'),
+        },
+
+        // {
+        //     name: '简历',
+        //     content: '查看我的简历',
+        //     icon_url: require('../images/resume.png'),
+        // },
+
+        {
+            name: '微信',
+            content: 'yuxuanism',
+            icon_url: require('../images/wechat.png'),
+        },
+
+        {
+            name: '抖音',
+            content: '七海原创',
+            icon_url: require('../images/douyin.png'),
         },
     ],
 }

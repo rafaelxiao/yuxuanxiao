@@ -5,7 +5,7 @@
     text-align: left;
     /* background-color: #B1D4E030; */
     position: relative;
-    height: max(40vh, 300px);
+    height: max(40vh, 340px);
     padding-bottom: 5vh;
 }
 
@@ -36,15 +36,15 @@
 
 .action_button {
     margin-top: 2vh;
-    width: max(35vw, 220px);
+    width: 260px;
     display: flex;
     justify-content: space-between;
 }
 
 .action_button button {
     border: none;
-    width: max(15vw, 100px);
-    height: max(4vh, 30px);
+    width: 120px;
+    height: 30px;
     font-size: 14px;
     background-color: #0C2D48ee;
     border-radius: 0.3rem;

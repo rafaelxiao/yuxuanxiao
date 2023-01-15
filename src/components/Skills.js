@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/Skills.css"
 
 
-function Skills({id, title, skills}) {
+function Skills({loc_id, title, skills}) {
     const listItem = skills.map((skill, index) => {
         return (
             <div key={index} class='skill_section'>
@@ -15,7 +15,7 @@ function Skills({id, title, skills}) {
         );
     })
     return (
-        <div id={id} className='skills'>
+        <div id={loc_id} className='skills'>
             <div className="title">{title}</div>
             {listItem}
         </div>

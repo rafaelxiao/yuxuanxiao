@@ -16,10 +16,10 @@ function Navbar( {language, setLanguage} ) {
         dynamicLink = (
             <div className="links">
                 <AnchorLink href="#intro" offset='100' onClick={()=>setExpandNavbar(false)}> { content.navHome }</AnchorLink>
-                <AnchorLink href="#projects" offset='40' onClick={()=>setExpandNavbar(false)}> { content.navProjects }</AnchorLink>
                 <AnchorLink href="#skills" offset='40' onClick={()=>setExpandNavbar(false)}> { content.navSkills }</AnchorLink>
-                <AnchorLink href="#skills" offset='40' onClick={()=>setExpandNavbar(false)}> { content.navContact }</AnchorLink>
-                <Link to="/economywatcher" onClick={()=>setExpandNavbar(false)}> { content.navCharts }</Link>
+                <AnchorLink href="#projects" offset='40' onClick={()=>setExpandNavbar(false)}> { content.navProjects }</AnchorLink>
+                <AnchorLink href="#contact" offset='40' onClick={()=>setExpandNavbar(false)}> { content.navContact }</AnchorLink>
+                <Link to="/economywatch" onClick={()=>setExpandNavbar(false)}> { content.navCharts }</Link>
             </div>
         )
 
@@ -42,11 +42,11 @@ function Navbar( {language, setLanguage} ) {
             </div>
         )
 
-    } else if (currentLocation.pathname === '/economywatcher') {
+    } else if (currentLocation.pathname === '/economywatch') {
         dynamicLink = (
             <div className="links">
                 <Link to="/" onClick={()=>setExpandNavbar(false)}> { content.navHome }</Link>
-                <Link to="/economywatcher" onClick={()=>setExpandNavbar(false)}> { content.navCharts }</Link>
+                <Link to="/economywatch" onClick={()=>setExpandNavbar(false)}> { content.navCharts }</Link>
             </div>
         )
     }
@@ -55,7 +55,7 @@ function Navbar( {language, setLanguage} ) {
     return (
     <div className="navbar" id={expandNavbar ? "open" : "close"}>
 
-        <div className="logo">YX</div>
+    <Link to="/"><div className="logo">YX</div></Link>
         {dynamicLink}
 
         {languageButton}

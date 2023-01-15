@@ -1,0 +1,47 @@
+.contact_background {
+    /* background-color: red; */
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    background-color: #B1D4E030;
+    position: relative;
+    height: max(20vh, 200px);
+    padding-bottom: 5vh;
+    padding-top: 8vh;
+    padding-bottom: 5vh;
+    padding-left: 5vw;
+}
+
+.contact_area {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.contact_title {
+    font-size: 18px;
+    margin-bottom: 0;
+    padding-bottom: 3vh;
+    font-weight: 800;
+    color: gray;
+    letter-spacing: 14px;
+}
+
+.contact_main {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact_item {
+    display: flex;
+    flex-direction: row;
+    font-size: 18px;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.contact_item_icon {
+    width: 30px;
+    margin-left: 5px;
+    margin-right: 5vw;
+}

@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/Intro.css";
 import { Link } from "react-router-dom";
+import AnchorLink from "react-anchor-link-smooth-scroll";
 
 
 function Intro({loc_id, main, desc, character, img_src, contact, eco_watcher}) {
@@ -12,8 +13,8 @@ function Intro({loc_id, main, desc, character, img_src, contact, eco_watcher}) {
                 <p className="character">{character}</p>
                 <p className="desc">{desc}</p>
                 <div className="action_button">
-                    <Link to="/"><button>{contact}</button></Link>
-                    <Link to="/economywatcher"><button>{eco_watcher}</button></Link>
+                    <AnchorLink href="#contact" offset='40'><button>{contact}</button></AnchorLink>
+                    <Link to="/economywatch"><button>{eco_watcher}</button></Link>
                 </div>
             </div>
 
