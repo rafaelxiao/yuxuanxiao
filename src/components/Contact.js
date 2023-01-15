@@ -1,7 +1,5 @@
 import React from "react";
 import "../styles/Contact.css";
-import Email from '@material-ui/icons/Email'
-// import Wechat from '@material-ui/icons/Wechat';
 
 function Contact( { loc_id, title, contact } ) {
 

@@ -1,14 +1,14 @@
 import './App.css';
 import React from 'react';
 import Home from './pages/Home';
-import { HashRouter as Router } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <Router>
+      <HashRouter>
         <Home />
-      </Router>
+      </HashRouter>
     </div>
   );
 }
