@@ -3,7 +3,7 @@ const ContentEN = {
     chartPageTitle: "Economy Watch",
     introMe: "Hi I am Yuxuan Xiao",
     introChar: "Data Analyst / Developer / Content Creator",
-    introPrompt: "Veteran data analyst passionate on discovering and telling stories hides behind data. Extensive experience in business and finance with a MBA degree and CFA level 3 passed. Familiar with technology like machine learning, time series and neural network",
+    introPrompt: "Veteran data analyst passionate on discovering and telling stories with data. Extensive experience in business and finance, with a MBA degree and CFA level 3. Capable of utilizing technology like machine learning, time series and neural network",
     introBackgroundImg: require('../images/thisisengineering.jpg'),
     navHome: "Home",
     navProjects: "Projects",
