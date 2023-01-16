@@ -23,8 +23,10 @@ export default function DepositChart() {
             },
             yAxis: {
                 type: 'value',
-                min: Math.round(accumulate.reduce((a, b) => a < b ? a : b)),
-                max: Math.round(accumulate.reduce((a, b) => a > b ? a : b)),
+                // min: Math.round(accumulate.reduce((a, b) => a < b ? a : b)),
+                // max: Math.round(accumulate.reduce((a, b) => a > b ? a : b)),
+                min: Math.round(records[records.length-1]['BASE_ACCUMULATE'] / 10000),
+                max: Math.round(records[0]['BASE_ACCUMULATE'] / 10000),
             },
             legend: {
                 ...origOption['legend'],
