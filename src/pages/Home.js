@@ -16,7 +16,9 @@ function Home() {
     const location = useLocation();
 
     useEffect(() => {
-        document.title = content.homeTitle;
+        if(location.pathname === '/') {
+            document.title = content.homeTitle;
+        }
     }, [location, language]);
 
 

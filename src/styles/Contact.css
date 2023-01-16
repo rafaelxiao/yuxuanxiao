@@ -6,9 +6,8 @@
     background-color: #B1D4E030;
     position: relative;
     height: max(20vh, 200px);
-    padding-bottom: 5vh;
     padding-top: 8vh;
-    padding-bottom: 5vh;
+    padding-bottom: 8vh;
     padding-left: 5vw;
 }
 
@@ -35,7 +34,7 @@
 .contact_item {
     display: flex;
     flex-direction: row;
-    font-size: 18px;
+    font-size: 16px;
     align-items: center;
     margin-bottom: 15px;
 }
@@ -44,4 +43,13 @@
     width: 30px;
     margin-left: 5px;
     margin-right: 5vw;
+}
+
+.contact_item a {
+    text-decoration: none;
+    color: black;
+}
+
+.contact_item a:hover {
+    color: #145DA0;
 }

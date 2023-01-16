@@ -9,14 +9,14 @@ function Contact( { loc_id, title, contact } ) {
                 <div className="contact_title"> {title} </div>
                 <div className="contact_main">
                     {
-                        contact.map((item) => {
+                        contact.map((item, index) => {
                             return (
-                                <div className="contact_item">
+                                <div className="contact_item" key={index}>
                                     <img src={item.icon_url} 
                                         className="contact_item_icon" 
                                         alt={item.name}
                                     />
-                                    { item.content }
+                                    <a href={item.link} target='_blank' rel="noopener noreferrer">{ item.content }</a>
                                 </div>
                             );
                         })

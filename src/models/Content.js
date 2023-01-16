@@ -48,6 +48,19 @@ const ContentEN = {
         //     content: 'view my resume',
         //     icon_url: require('../images/resume.png'),
         // },
+        {
+            name: 'kaggle',
+            content: 'kaggle.com/rafaelxiao',
+            link: 'https://www.kaggle.com/rafaelxiao',
+            icon_url: require('../images/kaggle.png'),
+        },
+
+        {
+            name: 'github',
+            content: 'github.com/rafaelxiao',
+            link: 'https://www.github.com/rafaelxiao',
+            icon_url: require('../images/github.png'),
+        },
 
         {
             name: 'Wechat',
@@ -68,7 +81,7 @@ const ContentCN = {
     chartPageTitle: "经济观察",
     introMe: "我是肖宇宣",
     introChar: "数据分析师 / 开发者 / 创作者",
-    introPrompt: "经验丰富的数据分析师，习惯用数据发现和检验认知。擅长商业、金融领域数据挖掘与分析，拥有MBA学位及CFA三级，能够运用机器学习、时间序列、神经网络等技术实现基于海量数据的业务赋能",
+    introPrompt: "经验丰富的数据分析师，习惯用数据发现和检验认知。擅长商业、金融领域数据挖掘与分析，拥有MBA学位及CFA三级，能够运用机器学习、时间序列、神经网络等技术实现基于海量数据的业务赋能。",
     introBackgroundImg: require('../images/thisisengineering.jpg'),
     navHome: "主页",
     navProjects: "项目",
@@ -113,6 +126,20 @@ const ContentCN = {
         //     content: '查看我的简历',
         //     icon_url: require('../images/resume.png'),
         // },
+
+        {
+            name: 'kaggle',
+            content: 'kaggle.com/rafaelxiao',
+            link: 'https://www.kaggle.com/rafaelxiao',
+            icon_url: require('../images/kaggle.png'),
+        },
+
+        {
+            name: 'github',
+            content: 'github.com/rafaelxiao',
+            link: 'https://www.github.com/rafaelxiao',
+            icon_url: require('../images/github.png'),
+        },
 
         {
             name: '微信',
