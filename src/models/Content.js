@@ -3,7 +3,7 @@ const ContentEN = {
     chartPageTitle: "Economy Watch",
     introMe: "Hi I am Yuxuan Xiao",
     introChar: "Data Analyst / Developer / Content Creator",
-    introPrompt: "Veteran data analyst passionate on discovering and telling stories with data. Extensive experience in business and finance, with a MBA degree and CFA level 3. Capable of utilizing technology like machine learning, time series and neural network.",
+    introPrompt: "Veteran data analyst passionate on discovering and telling stories using data. Extensive experience in business and finance, with a MBA degree and CFA level 3. Capable of utilizing technology like machine learning, time series and neural network.",
     introBackgroundImg: require('../images/thisisengineering.jpg'),
     navHome: "Home",
     navProjects: "Projects",
@@ -77,7 +77,7 @@ const ContentEN = {
 }
 
 const ContentCN = {
-    homeTitle: "宇宣的小站",
+    homeTitle: "宇宣的主页",
     chartPageTitle: "经济观察",
     introMe: "我是肖宇宣",
     introChar: "数据分析师 / 开发者 / 创作者",
