@@ -4,15 +4,16 @@ import "../styles/Navbar.css";
 import ReorderIcon from "@material-ui/icons/Reorder";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import { Link, useLocation } from "react-router-dom";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import gsap from "gsap";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 function Navbar( {language, setLanguage} ) {
     const [expandNavbar, setExpandNavbar] = React.useState(false);
     const content = language === 'CN' ? ContentCN: ContentEN;
     const currentLocation = useLocation();
 
-
+    const gsap = window.gsap;
+    const ScrollTrigger = window.ScrollTrigger;
 
     useLayoutEffect(()=>{
         gsap.registerPlugin(ScrollTrigger);
