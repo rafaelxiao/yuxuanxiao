@@ -19,7 +19,8 @@ function Navbar( {language, setLanguage} ) {
         gsap.registerPlugin(ScrollTrigger);
 
         const scrollTrigger = {
-            trigger: 'projects',
+            trigger: '.navbar',
+            start: '40',
             toggleActions: 'play none none reset',
             // scrub: 1,
             // markers: true,
@@ -39,6 +40,12 @@ function Navbar( {language, setLanguage} ) {
             });
 
             gsap.to(".links a", {
+                color: 'white',
+                // duration: 1,
+                scrollTrigger: scrollTrigger,
+            });
+
+            gsap.to(".toggleButton button", {
                 color: 'white',
                 // duration: 1,
                 scrollTrigger: scrollTrigger,

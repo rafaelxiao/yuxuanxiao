@@ -1,6 +1,6 @@
 .chart_section {
     background-color: #B1D4E030;
-    padding-top: 5vh;
+    padding-top: calc(80px + 5vh);
     padding-bottom: 5vh;
     text-align: left;
     padding-left: 5vw;
