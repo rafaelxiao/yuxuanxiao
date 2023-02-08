@@ -2,9 +2,6 @@ import React, { useLayoutEffect } from "react";
 import "../styles/Intro.css";
 import { Link } from "react-router-dom";
 import AnchorLink from "react-anchor-link-smooth-scroll";
-// import gsap from "gsap";
-// import { ScrollTrigger } from "gsap/ScrollTrigger";
-
 
 
 function Intro({loc_id, main, desc, character, img_src, contact, eco_watcher}) {
