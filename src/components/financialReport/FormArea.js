@@ -160,6 +160,8 @@ export default function FormArea({ report, graphStyle }) {
                     <TextArea label='上下距离' value={graphStyle.graphPaddingV} setValue={graphStyle.setGraphPaddingV} />
                     <TextArea label='标题大小' value={graphStyle.titleFontSize} setValue={graphStyle.setTitleFontSize} />
                     <TextArea label='标题位置' value={graphStyle.titlePaddingTop} setValue={graphStyle.setTitlePaddingTop} />
+                    <TextArea label='标签文字大小' value={graphStyle.labelFontSize} setValue={graphStyle.setLabelFontSize} />
+                    <TextArea label='标签数值大小' value={graphStyle.valueFontSize} setValue={graphStyle.setValueFontSize} />
                     <TextArea label='单位' value={graphStyle.unit} setValue={graphStyle.setUnit} />
                 </div>
 

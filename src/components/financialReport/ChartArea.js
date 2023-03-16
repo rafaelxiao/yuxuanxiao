@@ -240,14 +240,14 @@ export default function ChartArea({ report, graphStyle }) {
                 formatter: `{name|{b}}\n{value|{c}${' '+graphStyle.unit}}`,
                 rich: {
                     name: {
-                        fontSize: 12,
+                        fontSize: graphStyle.labelFontSize,
                         fontWeight: 'bold',
                         color: 'black',
                     },
                     value: {
-                        fontSize: 10,
+                        fontSize: graphStyle.valueFontSize,
                         color: 'black',
-                        lineHeight: 15,
+                        lineHeight: graphStyle.valueFontSize * 1.5,
                     }
                 }
             },
@@ -269,5 +269,5 @@ export default function ChartArea({ report, graphStyle }) {
 
     }
 
-    return <EchartsReact option={option} style={{ height: `${graphStyle.height}px`, width: '100%' }} />;
+    return (<EchartsReact option={option} style={{ height: `${graphStyle.height}px`, width: '100%' }} />);
 }

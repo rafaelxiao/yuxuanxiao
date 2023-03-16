@@ -267,6 +267,10 @@ export default function FinancialReport() {
         titleFontSizeShow: '30',
         titlePaddingTop: 5,
         titlePaddingTopShow: '5',
+        labelFontSize: 18,
+        labelFontSizeShow: '18',
+        valueFontSize: 14,
+        valueFontSizeShow: '14',
         height: 500,
         heightShow: '500',
         graphPaddingV: 25,
@@ -361,6 +365,44 @@ export default function FinancialReport() {
                 _setGraphStyles({
                     ..._graphStyles,
                     titleFontSizeShow: newValue,
+                })
+            }
+        },
+
+        get labelFontSize() {
+            return _graphStyles.labelFontSizeShow;
+        },
+
+        setLabelFontSize(newValue) {
+            if (!isNaN(parseFloat(newValue))) {
+                _setGraphStyles({
+                    ..._graphStyles,
+                    labelFontSize: parseFloat(newValue),
+                    labelFontSizeShow: newValue,
+                })
+            } else {
+                _setGraphStyles({
+                    ..._graphStyles,
+                    labelFontSizeShow: newValue,
+                })
+            }
+        },
+
+        get valueFontSize() {
+            return _graphStyles.valueFontSizeShow;
+        },
+
+        setValueFontSize(newValue) {
+            if (!isNaN(parseFloat(newValue))) {
+                _setGraphStyles({
+                    ..._graphStyles,
+                    valueFontSize: parseFloat(newValue),
+                    valueFontSizeShow: newValue,
+                })
+            } else {
+                _setGraphStyles({
+                    ..._graphStyles,
+                    valueFontSizeShow: newValue,
                 })
             }
         },
