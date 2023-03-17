@@ -4,6 +4,28 @@ import React from "react";
 export default function ChartArea({ report, graphStyle }) {
 
 
+    function getWaterMark() {
+        const waterMarkText = report.waterMark;
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = canvas.height = 200;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.globalAlpha = 1;
+        ctx.fillStyle = graphStyle.backgroundColor;
+        ctx.font = '20px Microsoft Yahei';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.globalAlpha = 0.5;
+        ctx.fillStyle = graphStyle.incomeColor;
+        ctx.translate(50, 50);
+        ctx.rotate(-Math.PI / 4);
+        ctx.fillText(waterMarkText, 0, 0);
+        return canvas;
+    }
+
+    
+
+
     var financialReport = {
 
         title: report.title,
@@ -229,7 +251,12 @@ export default function ChartArea({ report, graphStyle }) {
                 saveAsImage: {},
             }
         },
-        backgroundColor: graphStyle.backgroundColor,
+        // backgroundColor: graphStyle.backgroundColor,
+        backgroundColor: {
+            type: 'pattern',
+            image: getWaterMark(),
+            repeat: 'repeat',
+        },
         series: {
             type: 'sankey',
             layoutIterations: 0,

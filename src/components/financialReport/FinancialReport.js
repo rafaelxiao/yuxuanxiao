@@ -6,6 +6,7 @@ export default function FinancialReport() {
 
     const [_report, _setReport] = useState({
         title: "",
+        waterMark: "",
         cogs: 0,
         cogsShow: '0',
         tax: 0,
@@ -34,10 +35,21 @@ export default function FinancialReport() {
             return _report.title;
         },
 
-        setTitle: (newTitle) => {
+        setTitle: (newValue) => {
             _setReport({
                 ..._report,
-                title: newTitle
+                title: newValue
+            });
+        },
+
+        get waterMark() {
+            return _report.waterMark;
+        },
+
+        setWaterMark: (newValue) => {
+            _setReport({
+                ..._report,
+                waterMark: newValue,
             });
         },
 

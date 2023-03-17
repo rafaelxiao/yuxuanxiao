@@ -99,8 +99,10 @@ export default function FormArea({ report, graphStyle }) {
 
     return (
         <div style={areaStyle}>
-            <div style={areaBlockStyle}>
+            <div style={{...areaBlockStyle, flexDirection: 'row'}}>
                 <TextArea label='标题' value={report.title} setValue={report.setTitle} inputWidth={300} />
+                <div style={{width: '200px'}}></div>
+                <TextArea label='水印' value={report.waterMark} setValue={report.setWaterMark} inputWidth={300} />
             </div>
 
             <div style={{height: '20px'}}></div>
