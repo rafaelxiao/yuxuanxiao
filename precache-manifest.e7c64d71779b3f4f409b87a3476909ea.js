@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "406fe8f22868d543c785",
+    "revision": "eb7c16db96edc76a0675",
     "url": "/static/css/main.bb2236b2.chunk.css"
   },
   {
-    "revision": "406fe8f22868d543c785",
-    "url": "/static/js/main.406fe8f2.chunk.js"
+    "revision": "eb7c16db96edc76a0675",
+    "url": "/static/js/main.eb7c16db.chunk.js"
   },
   {
     "revision": "53e4bb49b0b4f565084a",
@@ -36,7 +36,7 @@ self.__precacheManifest = [
     "url": "/static/media/tradingpit.e0db9a1c.jpg"
   },
   {
-    "revision": "4e982438c5750182112bb222510205ad",
+    "revision": "dbef1e3e8096b30457c7cddb8d3e8c99",
     "url": "/index.html"
   }
 ];
