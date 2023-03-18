@@ -8,12 +8,12 @@ export default function ChartArea({ report, graphStyle }) {
         const waterMarkText = report.waterMark;
         const canvas = document.createElement('canvas');
         const ctx = canvas.getContext('2d');
-        canvas.width = canvas.height = 200;
+        canvas.width = canvas.height = 600;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.globalAlpha = 1;
         ctx.fillStyle = graphStyle.backgroundColor;
-        ctx.font = '20px Microsoft Yahei';
+        ctx.font = '26px Microsoft Yahei';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.globalAlpha = 0.5;
         ctx.fillStyle = graphStyle.incomeColor;
@@ -58,6 +58,8 @@ export default function ChartArea({ report, graphStyle }) {
         expense: report.expense,
 
         tax: report.tax,
+
+        other: report.other,
 
         investment: report.investment,
 
@@ -112,23 +114,41 @@ export default function ChartArea({ report, graphStyle }) {
 
         });
 
-        series.push({
-            'name': '所得税',
-            'itemStyle': {
-                'color': graphStyle.expenseColor,
-            },
-            'value': report.tax.toFixed(2),
+        if(report.tax !== 0) {
+            series.push({
+                'name': '所得税',
+                'itemStyle': {
+                    'color': report.tax >= 0 ? graphStyle.expenseColor : graphStyle.profitColor,
+                },
+                'value': report.tax >= 0 ? report.tax.toFixed(2) : -report.tax.toFixed(2),
+                'depth': report.tax >= 0 ? 4 : 3,
+    
+            });
+    
+        }
 
-        });
+        if(report.investment !== 0 ){
+            series.push({
+                'name': report.investment >= 0 ? '投资收益': '投资亏损',
+                'itemStyle': {
+                    'color': report.investment >= 0 ? graphStyle.incomeColor : graphStyle.expenseColor,
+                },
+                'depth': report.investment >= 0 ? 3 : 4,
+                'value': report.investment >= 0 ? report.investment.toFixed(2) : -report.investment.toFixed(2),
+            });
+        }
 
-        series.push({
-            'name': '投资收益',
-            'itemStyle': {
-                'color': report.investment >= 0 ? graphStyle.incomeColor : graphStyle.expenseColor,
-            },
-            'depth': report.investment >= 0 ? 3 : 4,
-            'value': report.investment >= 0 ? report.investment.toFixed(2) : -report.investment.toFixed(2),
-        });
+        if(report.other !== 0 ){
+            series.push({
+                'name': report.other >= 0 ? '营业外收入' : '营业外支出',
+                'itemStyle': {
+                    'color': report.other >= 0 ? graphStyle.incomeColor : graphStyle.expenseColor,
+                },
+                'depth': report.other >= 0 ? 3 : 4,
+                'value': report.other >= 0 ? report.other.toFixed(2) : -report.other.toFixed(2),
+            });
+        }
+
 
         for (let key in report.revenue) {
             if(report.revenue[key].value > 0) {
@@ -203,25 +223,60 @@ export default function ChartArea({ report, graphStyle }) {
 
         }
 
-        links.push({
-            source: '运营利润',
-            target: '所得税',
-            value: report.tax
-        });
+        // links.push({
+        //     source: '运营利润',
+        //     target: '所得税',
+        //     value: report.tax
+        // });
 
-        if (report.investment >= 0) {
-            links.push({
-                source: '投资收益',
-                target: '净利润',
-                value: report.investment
-            });
-        } else {
-            links.push({
-                source: '运营利润',
-                target: '投资收益',
-                value: -report.investment
-            });
+        if(report.tax !== 0){
+            if (report.tax < 0) {
+                links.push({
+                    source: '所得税',
+                    target: '净利润',
+                    value: -report.tax
+                });
+            } else {
+                links.push({
+                    source: '运营利润',
+                    target: '所得税',
+                    value: report.tax
+                });
+            }
         }
+
+        if(report.investment !== 0) {
+            if (report.investment >= 0) {
+                links.push({
+                    source: '投资收益',
+                    target: '净利润',
+                    value: report.investment
+                });
+            } else {
+                links.push({
+                    source: '运营利润',
+                    target: '投资亏损',
+                    value: -report.investment
+                });
+            }
+        }
+
+        if(report.other !== 0) {
+            if (report.other >= 0) {
+                links.push({
+                    source: '营业外收入',
+                    target: '净利润',
+                    value: report.other
+                });
+            } else {
+                links.push({
+                    source: '运营利润',
+                    target: '营业外支出',
+                    value: -report.other
+                });
+            }
+        }
+
 
         links.push({
             source: '运营利润',
@@ -260,7 +315,7 @@ export default function ChartArea({ report, graphStyle }) {
         series: {
             type: 'sankey',
             layoutIterations: 0,
-            nodeGap: 25,
+            nodeGap: 100,
             label: {
                 show: true,
                 textBorderColor: 'transparent',

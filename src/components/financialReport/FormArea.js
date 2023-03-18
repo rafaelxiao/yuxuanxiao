@@ -129,9 +129,19 @@ export default function FormArea({ report, graphStyle }) {
                     <TextArea label='主营业务成本' value={report.cogsShow} setValue={report.setCogs} />
 
                     {
+                        // [0, 1, 2, 3, 4].map((e) => {
+                        //     return <TextArea
+                        //         label={report.getExpenseName(e)}
+                        //         value={report.getExpenseShow(e)}
+                        //         setValue={report.setExpense(e)}
+                        //         key={e}
+                        //     />
+                        // })
+
                         [0, 1, 2, 3, 4].map((e) => {
-                            return <TextArea
-                                label={report.getExpenseName(e)}
+                            return <DoubleTextArea
+                                name={report.getExpenseName(e)}
+                                setName={report.setExpenseName(e)}
                                 value={report.getExpenseShow(e)}
                                 setValue={report.setExpense(e)}
                                 key={e}
@@ -145,6 +155,7 @@ export default function FormArea({ report, graphStyle }) {
                     <SectionTitle name={'税费及投资'} />
                     <TextArea label='税收支出' value={report.taxShow} setValue={report.setTax} />
                     <TextArea label='投资收益' value={report.investmentShow} setValue={report.setInvestment} />
+                    <TextArea label='营业外收入' value={report.otherShow} setValue={report.setOther} />
                 </div>
 
                 <div style={areaBlockStyle}>

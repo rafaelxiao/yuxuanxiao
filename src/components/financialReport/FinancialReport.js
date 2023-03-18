@@ -13,6 +13,8 @@ export default function FinancialReport() {
         taxShow: '0',
         investment: 0,
         investmentShow: '0',
+        other: 0,
+        otherShow: '0',
         expense: [
             { name: "财务费用", value: 0, show: '0' },
             { name: "销售费用", value: 0, show: '0' },
@@ -76,6 +78,29 @@ export default function FinancialReport() {
             }
         },
 
+        get other() {
+            return _report.other;
+        },
+
+        get otherShow() {
+            return _report.otherShow;
+        },
+
+        setOther: (newValue) => {
+            if(!isNaN(parseFloat(newValue))) {
+                _setReport({
+                    ..._report,
+                    other: parseFloat(newValue),
+                    otherShow: newValue,
+                });
+            } else {
+                _setReport({
+                    ..._report,
+                    otherShow: newValue,
+                });
+            }
+        },
+
         get tax() {
             return _report.tax;
         },
@@ -83,6 +108,8 @@ export default function FinancialReport() {
         get taxShow() {
             return _report.taxShow;
         },
+
+
 
         setTax: (newValue) => {
             if(!isNaN(parseFloat(newValue))) {
@@ -249,6 +276,7 @@ export default function FinancialReport() {
             return (newValue) => {
                 const newExpense = _report.expense.map((item, index) => {
                     if (index === id) {
+                        
                         return {
                             ...item,
                             name: newValue
@@ -259,8 +287,9 @@ export default function FinancialReport() {
                 });
                 _setReport({
                     ..._report,
-                    Expense: newExpense
+                    expense: newExpense
                 });
+
             }
         },
     }
@@ -275,18 +304,18 @@ export default function FinancialReport() {
         profitColorShow: '#EC700C',
         backgroundColor: '#F3F3F3',
         backgroundColorShow: '#F3F3F3',
-        titleFontSize: 30,
-        titleFontSizeShow: '30',
-        titlePaddingTop: 5,
-        titlePaddingTopShow: '5',
-        labelFontSize: 18,
-        labelFontSizeShow: '18',
-        valueFontSize: 14,
-        valueFontSizeShow: '14',
-        height: 500,
-        heightShow: '500',
-        graphPaddingV: 25,
-        graphPaddingVShow: '25',
+        titleFontSize: 80,
+        titleFontSizeShow: '80',
+        titlePaddingTop: 10,
+        titlePaddingTopShow: '10',
+        labelFontSize: 26,
+        labelFontSizeShow: '26',
+        valueFontSize: 20,
+        valueFontSizeShow: '20',
+        height: 1800,
+        heightShow: '1800',
+        graphPaddingV: 20,
+        graphPaddingVShow: '20',
         graphPaddingH: 10,
         graphPaddingHShow: '10',
         unit: '万',
