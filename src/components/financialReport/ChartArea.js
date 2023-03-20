@@ -1,71 +1,62 @@
 import EchartsReact from "echarts-for-react";
 import React from "react";
 
-export default function ChartArea({ report, graphStyle }) {
+export default function ChartArea({reportManager, styleManager}) {
 
 
-    function getWaterMark() {
-        const waterMarkText = report.waterMark;
+    function getWaterMark(waterMarkText) {
+        const size = 600;
         const canvas = document.createElement('canvas');
         const ctx = canvas.getContext('2d');
-        canvas.width = canvas.height = 600;
+        canvas.width = canvas.height = size;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.globalAlpha = 1;
-        ctx.fillStyle = graphStyle.backgroundColor;
-        ctx.font = '26px Microsoft Yahei';
+        ctx.fillStyle = styleManager.getItem('backgroundColor').value;
+        ctx.font = '60px Microsoft YaHei';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
-        ctx.globalAlpha = 0.5;
-        ctx.fillStyle = graphStyle.incomeColor;
-        ctx.translate(50, 50);
+        ctx.globalAlpha = 0.3;
+        ctx.fillStyle = styleManager.getItem('incomeColor').value;
+        ctx.translate(size / 2, size / 2);
         ctx.rotate(-Math.PI / 4);
         ctx.fillText(waterMarkText, 0, 0);
         return canvas;
     }
 
-    
 
 
     var financialReport = {
 
-        title: report.title,
-
-        revenue: report.revenue,
 
         get totalRevenue() {
-            var sum = 0;
-            for (let i in this.revenue) {
-                sum += this.revenue[i].value;
-            }
-            return sum;
+            return reportManager.sumByType('revenue');
         },
 
         get grossProfit() {
-            return this.totalRevenue - this.cogs;
+            return this.totalRevenue - reportManager.sumByType('cogs');
         },
 
         get operatingProfit() {
-            var sum = 0;
-            for (let i in this.expense) {
-                sum += this.expense[i].value;
-            }
-            return this.grossProfit - sum;
+            return this.grossProfit - reportManager.sumByType('expense');
         },
 
-        cogs: report.cogs,
+        tax: reportManager.getItem('tax').valueTwoDigits,
+        get taxName() {
+            return reportManager.getItem('tax').name + (this.tax >= 0 ? '支出' : '抵扣');
+        },
 
+        investment: reportManager.getItem('investment').valueTwoDigits,
+        get investmentName() {
+            return reportManager.getItem('investment').name + (this.investment >= 0 ? '收入' : '支出');
+        },
 
-        expense: report.expense,
-
-        tax: report.tax,
-
-        other: report.other,
-
-        investment: report.investment,
-
+        other: reportManager.getItem('other').valueTwoDigits,
+        get otherName() {
+            return reportManager.getItem('other').name + (this.other >= 0 ? '收入' : '支出');
+        },
 
         get netProfit() {
-            return this.operatingProfit - this.tax + this.investment;
+            return this.operatingProfit - this.tax + this.investment + this.other;
         }
 
     }
@@ -76,7 +67,7 @@ export default function ChartArea({ report, graphStyle }) {
         series.push({
             'name': '营收',
             'itemStyle': {
-                'color': graphStyle.incomeColor,
+                'color': styleManager.getItem('incomeColor').value,
             },
             'value': report.totalRevenue.toFixed(2),
         });
@@ -84,7 +75,7 @@ export default function ChartArea({ report, graphStyle }) {
         series.push({
             'name': '毛利润',
             'itemStyle': {
-                'color': graphStyle.profitColor,
+                'color': styleManager.getItem('profitColor').value,
             },
             'value': report.grossProfit.toFixed(2),
         });
@@ -92,7 +83,7 @@ export default function ChartArea({ report, graphStyle }) {
         series.push({
             'name': '运营利润',
             'itemStyle': {
-                'color': graphStyle.profitColor,
+                'color': styleManager.getItem('profitColor').value,
             },
             'value': report.operatingProfit.toFixed(2),
         });
@@ -100,76 +91,81 @@ export default function ChartArea({ report, graphStyle }) {
         series.push({
             'name': '净利润',
             'itemStyle': {
-                'color': graphStyle.profitColor,
+                'color': styleManager.getItem('profitColor').value,
             },
             'value': report.netProfit.toFixed(2),
         });
 
-        series.push({
-            'name': '主营业务成本',
-            'itemStyle': {
-                'color': graphStyle.expenseColor,
-            },
-            'value': report.cogs.toFixed(2),
-
-        });
-
         if(report.tax !== 0) {
             series.push({
-                'name': '所得税',
+                'name': report.taxName,
                 'itemStyle': {
-                    'color': report.tax >= 0 ? graphStyle.expenseColor : graphStyle.profitColor,
+                    'color': report.tax >= 0 ? styleManager.getItem('expenseColor').value : styleManager.getItem('profitColor').value,
                 },
-                'value': report.tax >= 0 ? report.tax.toFixed(2) : -report.tax.toFixed(2),
+                'value': report.tax >= 0 ? report.tax : -report.tax,
                 'depth': report.tax >= 0 ? 4 : 3,
     
             });
-    
         }
 
-        if(report.investment !== 0 ){
+        if(report.investment !== 0) {
             series.push({
-                'name': report.investment >= 0 ? '投资收益': '投资亏损',
+                'name': report.investmentName,
                 'itemStyle': {
-                    'color': report.investment >= 0 ? graphStyle.incomeColor : graphStyle.expenseColor,
+                    'color': report.investment >= 0 ? styleManager.getItem('incomeColor').value : styleManager.getItem('expenseColor').value,
                 },
+                'value': report.investment >= 0 ? report.investment : -report.investment,
                 'depth': report.investment >= 0 ? 3 : 4,
-                'value': report.investment >= 0 ? report.investment.toFixed(2) : -report.investment.toFixed(2),
             });
         }
 
-        if(report.other !== 0 ){
+
+        if(report.other !== 0) {
             series.push({
-                'name': report.other >= 0 ? '营业外收入' : '营业外支出',
+                'name': report.otherName,
                 'itemStyle': {
-                    'color': report.other >= 0 ? graphStyle.incomeColor : graphStyle.expenseColor,
+                    'color': report.other >= 0 ? styleManager.getItem('incomeColor').value : styleManager.getItem('expenseColor').value,
                 },
+                'value': report.other >= 0 ? report.other : -report.other,
                 'depth': report.other >= 0 ? 3 : 4,
-                'value': report.other >= 0 ? report.other.toFixed(2) : -report.other.toFixed(2),
             });
         }
 
-
-        for (let key in report.revenue) {
-            if(report.revenue[key].value > 0) {
+        const cogsItems = reportManager.filterByType('cogs');
+        for (let key in cogsItems) {
+            if(cogsItems[key].value > 0) {
                 series.push({
-                    'name': report.revenue[key].name,
+                    'name': cogsItems[key].name,
                     'itemStyle': {
-                        'color': graphStyle.incomeColor,
+                        'color': styleManager.getItem('expenseColor').value,
                     },
-                    'value': report.revenue[key].value.toFixed(2)
+                    'value': cogsItems[key].valueTwoDigits
                 });
             }
         }
 
-        for (let key in report.expense) {
-            if(report.expense[key].value > 0) {
+        const revenueItems = reportManager.filterByType('revenue');
+        for (let key in revenueItems) {
+            if(revenueItems[key].value > 0) {
                 series.push({
-                    'name': report.expense[key].name,
+                    'name': revenueItems[key].name,
                     'itemStyle': {
-                        'color': graphStyle.expenseColor,
+                        'color': styleManager.getItem('incomeColor').value,
                     },
-                    'value': report.expense[key].value.toFixed(2)
+                    'value': revenueItems[key].valueTwoDigits
+                });
+            }
+        }
+
+        const expenseItems = reportManager.filterByType('expense');
+        for (let key in expenseItems) {
+            if(expenseItems[key].value > 0) {
+                series.push({
+                    'name': expenseItems[key].name,
+                    'itemStyle': {
+                        'color': styleManager.getItem('expenseColor').value,
+                    },
+                    'value': expenseItems[key].valueTwoDigits
                 });
             }
         }
@@ -180,11 +176,12 @@ export default function ChartArea({ report, graphStyle }) {
     function getReportLinks(report) {
         var links = [];
 
-        for (let key in report.revenue) {
+        const revenueItems = reportManager.filterByType('revenue');
+        for (let key in revenueItems) {
             links.push({
-                source: report.revenue[key].name,
+                source: revenueItems[key].name,
                 target: '营收',
-                value: report.revenue[key].value,
+                value: revenueItems[key].value,
             })
         }
 
@@ -194,11 +191,16 @@ export default function ChartArea({ report, graphStyle }) {
             value: report.grossProfit
         })
 
-        links.push({
-            source: '营收',
-            target: '主营业务成本',
-            value: report.cogs
-        })
+        const cogsItems = reportManager.filterByType('cogs');
+        for (let key in cogsItems) {
+            links.push({
+                source: '营收',
+                target: cogsItems[key].name,
+                value: cogsItems[key].value,
+            })
+        }
+
+
 
         links.push({
             source: '毛利润',
@@ -206,40 +208,27 @@ export default function ChartArea({ report, graphStyle }) {
             value: report.operatingProfit
         })
 
-        for (let key in report.expense) {
-            if (report.expense[key].value >= 0) {
-                links.push({
-                    source: '毛利润',
-                    target: report.expense[key].name,
-                    value: report.expense[key].value
-                });
-            } else {
-                links.push({
-                    source: report.expense[key].name,
-                    target: '运营利润',
-                    value: -report.expense[key].value
-                });
-            }
-
+        const expenseItems = reportManager.filterByType('expense');
+        for (let key in expenseItems) {
+            links.push({
+                source: '毛利润',
+                target: expenseItems[key].name,
+                value: expenseItems[key].value
+            });
         }
 
-        // links.push({
-        //     source: '运营利润',
-        //     target: '所得税',
-        //     value: report.tax
-        // });
 
         if(report.tax !== 0){
             if (report.tax < 0) {
                 links.push({
-                    source: '所得税',
+                    source: report.taxName,
                     target: '净利润',
                     value: -report.tax
                 });
             } else {
                 links.push({
                     source: '运营利润',
-                    target: '所得税',
+                    target: report.taxName,
                     value: report.tax
                 });
             }
@@ -248,14 +237,14 @@ export default function ChartArea({ report, graphStyle }) {
         if(report.investment !== 0) {
             if (report.investment >= 0) {
                 links.push({
-                    source: '投资收益',
+                    source: report.investmentName,
                     target: '净利润',
                     value: report.investment
                 });
             } else {
                 links.push({
                     source: '运营利润',
-                    target: '投资亏损',
+                    target: report.investmentName,
                     value: -report.investment
                 });
             }
@@ -264,14 +253,14 @@ export default function ChartArea({ report, graphStyle }) {
         if(report.other !== 0) {
             if (report.other >= 0) {
                 links.push({
-                    source: '营业外收入',
+                    source: report.otherName,
                     target: '净利润',
                     value: report.other
                 });
             } else {
                 links.push({
                     source: '运营利润',
-                    target: '营业外支出',
+                    target: report.otherName,
                     value: -report.other
                 });
             }
@@ -287,17 +276,20 @@ export default function ChartArea({ report, graphStyle }) {
         return links;
     }
 
+
     var option = {
         title: [
             {
-                text: financialReport.title,
+                text: styleManager.getItem('title').value,
                 textStyle: {
-                    fontSize: graphStyle.titleFontSize,
+                    fontSize: styleManager.getItem('titleFontSize').value,
                 },
                 left: 'center',
-                top: `${graphStyle.titlePaddingTop}%`,
+                top: `${styleManager.getItem('titlePaddingTop').value}%`,
+                show: true,
             }
         ],
+
         toolbox: {
             show: true,
             left: 'center',
@@ -306,10 +298,9 @@ export default function ChartArea({ report, graphStyle }) {
                 saveAsImage: {},
             }
         },
-        // backgroundColor: graphStyle.backgroundColor,
         backgroundColor: {
             type: 'pattern',
-            image: getWaterMark(),
+            image: getWaterMark(styleManager.getItem('waterMark').value),
             repeat: 'repeat',
         },
         series: {
@@ -319,27 +310,27 @@ export default function ChartArea({ report, graphStyle }) {
             label: {
                 show: true,
                 textBorderColor: 'transparent',
-                formatter: `{name|{b}}\n{value|{c}${' '+graphStyle.unit}}`,
+                formatter: `{name|{b}}\n{value|{c}${' '+styleManager.getItem('unit').value}}`,
                 rich: {
                     name: {
-                        fontSize: graphStyle.labelFontSize,
+                        fontSize: styleManager.getItem('labelFontSize').value,
                         fontWeight: 'bold',
                         color: 'black',
                     },
                     value: {
-                        fontSize: graphStyle.valueFontSize,
+                        fontSize: styleManager.getItem('valueFontSize').value,
                         color: 'black',
-                        lineHeight: graphStyle.valueFontSize * 1.5,
+                        lineHeight: styleManager.getItem('valueFontSize').value * 1.5,
                     }
                 }
             },
             nodeAlign: 'left',
             data: getReportSeries(financialReport),
             links: getReportLinks(financialReport),
-            top: `${graphStyle.graphPaddingV}%`,
-            bottom: `${graphStyle.graphPaddingV}%`,
-            right: `${graphStyle.graphPaddingH}%`,
-            left: `${graphStyle.graphPaddingH}%`,
+            top: `${styleManager.getItem('graphPaddingV').value}%`,
+            bottom: `${(styleManager.getItem('graphPaddingV').value - styleManager.getItem('titlePaddingTop').value )}%`,
+            right: `${styleManager.getItem('graphPaddingH').value}%`,
+            left: `${styleManager.getItem('graphPaddingH').value}%`,
             emphasis: {
                 focus: 'adjacency'
             },
@@ -351,5 +342,5 @@ export default function ChartArea({ report, graphStyle }) {
 
     }
 
-    return (<EchartsReact option={option} style={{ height: `${graphStyle.height}px`, width: '100%' }} />);
+    return (<EchartsReact option={option} style={{ height: `${styleManager.getItem('height').value}px`, width: '100%' }} />);
 }

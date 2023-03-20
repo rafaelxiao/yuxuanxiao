@@ -56,7 +56,7 @@ function DoubleTextArea({ name, setName, value, setValue, inputWidth }) {
     )
 }
 
-function SectionTitle( {name} ) {
+function SectionTitle({ name }) {
     var style = {
         height: '30px',
         display: 'flex',
@@ -70,11 +70,11 @@ function SectionTitle( {name} ) {
         <div style={style}>
             {name}
         </div>
-        
+
     )
 }
 
-export default function FormArea({ report, graphStyle }) {
+export default function FormArea({ reportManager, styleManager }) {
 
     var areaStyle = {
         width: '100%',
@@ -94,29 +94,40 @@ export default function FormArea({ report, graphStyle }) {
         flexDirection: 'column',
         paddingLeft: '20px',
         paddingRight: '20px',
-        
+
     }
 
     return (
         <div style={areaStyle}>
-            <div style={{...areaBlockStyle, flexDirection: 'row'}}>
-                <TextArea label='标题' value={report.title} setValue={report.setTitle} inputWidth={300} />
-                <div style={{width: '200px'}}></div>
-                <TextArea label='水印' value={report.waterMark} setValue={report.setWaterMark} inputWidth={300} />
+            <div style={{ ...areaBlockStyle, flexDirection: 'row' }}>
+                <TextArea
+                    label={styleManager.getItem('title').name}
+                    value={styleManager.getItem('title').value}
+                    setValue={styleManager.getUpdateCallback('title')}
+                    inputWidth={300}
+                />
+                <div style={{ width: '200px' }}></div>
+                <TextArea
+                    label={styleManager.getItem('waterMark').name}
+                    value={styleManager.getItem('waterMark').value}
+                    setValue={styleManager.getUpdateCallback('waterMark')}
+                    inputWidth={300}
+                />
             </div>
 
-            <div style={{height: '20px'}}></div>
+            <div style={{ height: '20px' }}></div>
 
             <div style={areaStyleHorizontal}>
                 <div style={areaBlockStyle}>
-                    <SectionTitle name={'收入项'} />
+                    <SectionTitle name={'经营收入'} />
+
                     {
-                        [0, 1, 2, 3, 4].map((e) => {
+                        ['revenue01', 'revenue02', 'revenue03', 'revenue04', 'revenue05'].map((e) => {
                             return <DoubleTextArea
-                                name={report.getRevenueName(e)}
-                                setName={report.setRevenueName(e)}
-                                value={report.getRevenueShow(e)}
-                                setValue={report.setRevenue(e)}
+                                name={reportManager.getItem(e).name}
+                                setName={reportManager.getChangeNameCallback(e)}
+                                value={reportManager.getItem(e).valueShow}
+                                setValue={reportManager.getUpdateCallback(e)}
                                 key={e}
                             />
                         })
@@ -125,25 +136,30 @@ export default function FormArea({ report, graphStyle }) {
                 </div>
 
                 <div style={areaBlockStyle}>
-                    <SectionTitle name={'支出项'} />
-                    <TextArea label='主营业务成本' value={report.cogsShow} setValue={report.setCogs} />
+                    <SectionTitle name={'主营业务支出'} />
 
                     {
-                        // [0, 1, 2, 3, 4].map((e) => {
-                        //     return <TextArea
-                        //         label={report.getExpenseName(e)}
-                        //         value={report.getExpenseShow(e)}
-                        //         setValue={report.setExpense(e)}
-                        //         key={e}
-                        //     />
-                        // })
-
-                        [0, 1, 2, 3, 4].map((e) => {
+                        ['cogs01', 'cogs02', 'cogs03', 'cogs04', 'cogs05'].map((e) => {
                             return <DoubleTextArea
-                                name={report.getExpenseName(e)}
-                                setName={report.setExpenseName(e)}
-                                value={report.getExpenseShow(e)}
-                                setValue={report.setExpense(e)}
+                                name={reportManager.getItem(e).name}
+                                setName={reportManager.getChangeNameCallback(e)}
+                                value={reportManager.getItem(e).valueShow}
+                                setValue={reportManager.getUpdateCallback(e)}
+                                key={e}
+                            />
+                        })
+                    }
+                </div>
+
+                <div style={areaBlockStyle}>
+                    <SectionTitle name={'运营支出'} />
+                    {
+                        ['expense01', 'expense02', 'expense03', 'expense04', 'expense05'].map((e) => {
+                            return <DoubleTextArea
+                                name={reportManager.getItem(e).name}
+                                setName={reportManager.getChangeNameCallback(e)}
+                                value={reportManager.getItem(e).valueShow}
+                                setValue={reportManager.getUpdateCallback(e)}
                                 key={e}
                             />
                         })
@@ -153,29 +169,52 @@ export default function FormArea({ report, graphStyle }) {
 
                 <div style={areaBlockStyle}>
                     <SectionTitle name={'税费及投资'} />
-                    <TextArea label='税收支出' value={report.taxShow} setValue={report.setTax} />
-                    <TextArea label='投资收益' value={report.investmentShow} setValue={report.setInvestment} />
-                    <TextArea label='营业外收入' value={report.otherShow} setValue={report.setOther} />
+
+                    {
+                        ['tax', 'investment', 'other'].map((e) => {
+                            return <TextArea
+                                label={reportManager.getItem(e).name}
+                                value={reportManager.getItem(e).valueShow}
+                                setValue={reportManager.getUpdateCallback(e)}
+                                key={e}
+                            />
+                        })
+                    }
+
                 </div>
 
                 <div style={areaBlockStyle}>
                     <SectionTitle name={'颜色设定'} />
-                    <TextArea label='背景颜色' value={graphStyle.backgroundColor} setValue={graphStyle.setBackgroundColor} />
-                    <TextArea label='收入颜色' value={graphStyle.incomeColor} setValue={graphStyle.setIncomeColor} />
-                    <TextArea label='利润颜色' value={graphStyle.profitColor} setValue={graphStyle.setProfitColor} />
-                    <TextArea label='支出颜色' value={graphStyle.expenseColor} setValue={graphStyle.setExpenseColor} />
+
+                    {
+                        ['backgroundColor', 'incomeColor', 'profitColor', 'expenseColor'].map((e) => {
+                            return <TextArea
+                                label={styleManager.getItem(e).name}
+                                value={styleManager.getItem(e).valueShow}
+                                setValue={styleManager.getUpdateCallback(e)}
+                                key={e}
+                            />
+                        })
+                    }
+
                 </div>
 
                 <div style={areaBlockStyle}>
                     <SectionTitle name={'样式设定'} />
-                    <TextArea label='图像大小' value={graphStyle.height} setValue={graphStyle.setHeight} />
-                    <TextArea label='左右距离' value={graphStyle.graphPaddingH} setValue={graphStyle.setGraphPaddingH} />
-                    <TextArea label='上下距离' value={graphStyle.graphPaddingV} setValue={graphStyle.setGraphPaddingV} />
-                    <TextArea label='标题大小' value={graphStyle.titleFontSize} setValue={graphStyle.setTitleFontSize} />
-                    <TextArea label='标题位置' value={graphStyle.titlePaddingTop} setValue={graphStyle.setTitlePaddingTop} />
-                    <TextArea label='标签文字大小' value={graphStyle.labelFontSize} setValue={graphStyle.setLabelFontSize} />
-                    <TextArea label='标签数值大小' value={graphStyle.valueFontSize} setValue={graphStyle.setValueFontSize} />
-                    <TextArea label='单位' value={graphStyle.unit} setValue={graphStyle.setUnit} />
+
+                    {
+                        [
+                            'height', 'graphPaddingV', 'graphPaddingH', 'titleFontSize',
+                            'titlePaddingTop', 'labelFontSize', 'valueFontSize', 'unit'
+                        ].map((e) => {
+                            return <TextArea
+                                label={styleManager.getItem(e).name}
+                                value={styleManager.getItem(e).valueShow}
+                                setValue={styleManager.getUpdateCallback(e)}
+                                key={e}
+                            />
+                        })
+                    }
                 </div>
 
             </div>
