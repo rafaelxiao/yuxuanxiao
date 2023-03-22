@@ -3,7 +3,7 @@ import FRItem from "./FRItem";
 const defaultReport = [
     new FRItem({
         id: 'revenue01',
-        name: '项目1',
+        name: '营收项目1',
         value: 0,
         type: 'revenue',
         validator: (value) => !isNaN(parseFloat(value)),

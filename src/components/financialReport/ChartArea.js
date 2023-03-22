@@ -40,6 +40,17 @@ export default function ChartArea({reportManager, styleManager}) {
             return this.grossProfit - reportManager.sumByType('expense');
         },
 
+        get operatingGap() {
+            var sum = this.operatingProfit;
+            var expsnseItems = reportManager.filterByType('expense');
+            for(let idx in expsnseItems) {
+                if(expsnseItems[idx].value < 0){
+                    sum -= -expsnseItems[idx].value
+                }
+            }
+            return sum
+        },
+
         tax: reportManager.getItem('tax').valueTwoDigits,
         get taxName() {
             return reportManager.getItem('tax').name + (this.tax >= 0 ? '支出' : '抵扣');
@@ -57,7 +68,18 @@ export default function ChartArea({reportManager, styleManager}) {
 
         get netProfit() {
             return this.operatingProfit - this.tax + this.investment + this.other;
-        }
+        },
+
+        get netGap() {
+            var sum = this.netProfit;
+            var itemNames = ['tax', 'investment', 'other']
+            for(let idx in itemNames) {
+                if(reportManager.getItem(itemNames[idx]).value < 0){
+                    sum -= -reportManager.getItem(itemNames[idx]).value
+                }
+            }
+            return sum
+        },
 
     }
 
@@ -159,13 +181,14 @@ export default function ChartArea({reportManager, styleManager}) {
 
         const expenseItems = reportManager.filterByType('expense');
         for (let key in expenseItems) {
-            if(expenseItems[key].value > 0) {
+            if(expenseItems[key].value !== 0) {
                 series.push({
                     'name': expenseItems[key].name,
                     'itemStyle': {
-                        'color': styleManager.getItem('expenseColor').value,
+                        'color':  expenseItems[key].value >= 0 ? styleManager.getItem('expenseColor').value : styleManager.getItem('incomeColor').value,
                     },
-                    'value': expenseItems[key].valueTwoDigits
+                    'value': expenseItems[key].value >= 0 ? expenseItems[key].valueTwoDigits : -expenseItems[key].valueTwoDigits,
+                    'depth': expenseItems[key].value >= 0 ? 3 : 2,
                 });
             }
         }
@@ -205,16 +228,25 @@ export default function ChartArea({reportManager, styleManager}) {
         links.push({
             source: '毛利润',
             target: '运营利润',
-            value: report.operatingProfit
+            value: report.operatingGap
         })
 
         const expenseItems = reportManager.filterByType('expense');
         for (let key in expenseItems) {
-            links.push({
-                source: '毛利润',
-                target: expenseItems[key].name,
-                value: expenseItems[key].value
-            });
+            if(expenseItems[key].value >= 0) {
+                links.push({
+                    source: '毛利润',
+                    target: expenseItems[key].name,
+                    value: expenseItems[key].value
+                });
+            } else {
+                links.push({
+                    source: expenseItems[key].name,
+                    target: '运营利润',
+                    value: -expenseItems[key].value
+                });
+            }
+
         }
 
 
@@ -270,7 +302,7 @@ export default function ChartArea({reportManager, styleManager}) {
         links.push({
             source: '运营利润',
             target: '净利润',
-            value: report.netProfit
+            value: report.netGap
         })
 
         return links;
