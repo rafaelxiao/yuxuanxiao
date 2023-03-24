@@ -9,7 +9,6 @@ import Skills from "../components/Skills";
 import { Route, Routes, useLocation } from "react-router-dom";
 import ChartPage from "./ChartPage";
 import Contact from "../components/Contact";
-import FinancialReport from "../components/financialReport/FinancialReport";
 
 function Home() {
     const [language, setLanguage] = React.useState('CN');
@@ -52,7 +51,6 @@ function Home() {
             <Routes>
                 <Route path="/" element={mainArea} />
                 <Route path="/economywatch" element={<ChartPage title={content.navCharts} id='charts' pageTitle={content.chartPageTitle}/>} />
-                <Route path="/fr" element={<FinancialReport/>} />
             </Routes>
 
             <Footer />

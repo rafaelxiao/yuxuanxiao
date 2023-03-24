@@ -14,10 +14,36 @@ const ContentEN = {
     displayCharts: "Economy Watch",
     displayContact: "Contact me",
     projects: [
-        {title: 'Kaggle: Blindness Detection', desc: 'Kaggle Competetion Final Ranking: 30/2928. Using computer vision to identify diabetic retinopathy. Silver medal won.', img_url: require('../images/aptos2019.jpg'), project_url: "https://www.kaggle.com/competitions/aptos2019-blindness-detection/leaderboard"},
-        {title: 'Kaggle: Energy Predictor', desc: 'Kaggle Competetion Final Ranking: 172/3614. Using public building\'s attributes to predict its energy consumption. Silver medal won.', img_url: require('../images/ashrae_energy.jpg'), project_url: "https://www.kaggle.com/competitions/ashrae-energy-prediction"},
-        {title: 'App: Worker Timer', desc: 'A multi-task timer to track and priotize different tasks.', img_url: require('../images/worktimer.jpg'), project_url: "https://rafaelxiao.github.io/worktimer"},
-        {title: 'App: Trading Pit', desc: 'A trading simulator with the support of setting strategies and reviewing performance stats.', img_url: require('../images/tradingpit.jpg'), project_url: "https://rafaelxiao.github.io/tradingpit"},
+        {
+            title: 'Kaggle: Blindness Detection', 
+            desc: 'Kaggle Competetion Final Ranking: 30/2928. Using computer vision to identify diabetic retinopathy. Silver medal won.', 
+            img_url: require('../images/aptos2019.jpg'), 
+            project_url: "https://www.kaggle.com/competitions/aptos2019-blindness-detection/leaderboard"
+        },
+        {
+            title: 'Kaggle: Energy Predictor', 
+            desc: 'Kaggle Competetion Final Ranking: 172/3614. Using public building\'s attributes to predict its energy consumption. Silver medal won.', 
+            img_url: require('../images/ashrae_energy.jpg'), 
+            project_url: "https://www.kaggle.com/competitions/ashrae-energy-prediction"
+        },
+        {
+            title: 'App: Worker Timer', 
+            desc: 'A multi-task timer to track and priotize different tasks.', 
+            img_url: require('../images/worktimer.jpg'), 
+            project_url: "https://rafaelxiao.github.io/worktimer"
+        },
+        {
+            title: 'App: Financial Report Chart', 
+            desc: 'A simple application to create elegant sankey chart for visualizing financial report.', 
+            img_url: require('../images/financial_report.png'), 
+            project_url: "https://rafaelxiao.github.io/financial_report"
+        },
+        {
+            title: 'App: Trading Pit', 
+            desc: 'A trading simulator with the support of setting strategies and reviewing performance stats.', 
+            img_url: require('../images/tradingpit.jpg'), 
+            project_url: "https://rafaelxiao.github.io/tradingpit"
+        },
     ],
     skills: [
         {
@@ -92,10 +118,36 @@ const ContentCN = {
     displayCharts: "经济观察",
     displayContact: "联系我",
     projects: [
-        {title: 'Kaggle：APTOS盲眼检测', desc: 'Kaggle竞赛最终排名30/2928。一个图像识别竞赛，通过眼球拍片识别患者糖尿病视网膜病变的概率。比赛获银牌。', img_url: require('../images/aptos2019.jpg'), project_url: "https://www.kaggle.com/competitions/aptos2019-blindness-detection/leaderboard"},
-        {title: 'Kaggle：ASHRAE建筑耗能预测', desc: 'Kaggle竞赛最终排名172/3614。通过公共建筑的地理位置、营业时间、面积等特征预测其能源消耗情况。比赛获银牌。', img_url: require('../images/ashrae_energy.jpg'), project_url: "https://www.kaggle.com/competitions/ashrae-energy-prediction"},
-        {title: 'App：效率时钟', desc: '一个帮助管理日间任务的小工具，支持同时追踪多个任务，实现时间合理分配。', img_url: require('../images/worktimer.jpg'), project_url: "https://rafaelxiao.github.io/worktimer"},
-        {title: 'App：交易模拟', desc: '一个模拟股票买卖交易的应用，支持设定买卖策略及对胜率、赔率等关键指标进行统计。', img_url: require('../images/tradingpit.jpg'), project_url: "https://rafaelxiao.github.io/tradingpit"},
+        {
+            title: 'Kaggle：APTOS盲眼检测', 
+            desc: 'Kaggle竞赛最终排名30/2928。一个图像识别竞赛，通过眼球拍片识别患者糖尿病视网膜病变的概率。比赛获银牌。', 
+            img_url: require('../images/aptos2019.jpg'), 
+            project_url: "https://www.kaggle.com/competitions/aptos2019-blindness-detection/leaderboard"
+        },
+        {
+            title: 'Kaggle：ASHRAE建筑耗能预测', 
+            desc: 'Kaggle竞赛最终排名172/3614。通过公共建筑的地理位置、营业时间、面积等特征预测其能源消耗情况。比赛获银牌。', 
+            img_url: require('../images/ashrae_energy.jpg'), 
+            project_url: "https://www.kaggle.com/competitions/ashrae-energy-prediction"
+        },
+        {
+            title: 'App：效率时钟', 
+            desc: '一个帮助管理日间任务的小工具，支持同时追踪多个任务，实现时间合理分配。', 
+            img_url: require('../images/worktimer.jpg'), 
+            project_url: "https://rafaelxiao.github.io/worktimer"
+        },
+        {
+            title: 'App: 财报图表', 
+            desc: '一个能够可视化公司财报的工具，能够通过桑基图来直观展示公司利润表。', 
+            img_url: require('../images/financial_report.png'), 
+            project_url: "https://rafaelxiao.github.io/financial_report"
+        },
+        {
+            title: 'App：交易模拟', 
+            desc: '一个模拟股票买卖交易的应用，支持设定买卖策略及对胜率、赔率等关键指标进行统计。', 
+            img_url: require('../images/tradingpit.jpg'), 
+            project_url: "https://rafaelxiao.github.io/tradingpit"
+        },
     ],
     skills: [
         {
